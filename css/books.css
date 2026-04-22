@@ -71,5 +71,7 @@ body{
     margin-bottom: 2%;
     overflow-y: scroll;
     max-height: 25%;
+    min-height: 25%;
     border-radius: 15px;
+    align-content: center;
 }

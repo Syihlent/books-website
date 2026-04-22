@@ -29,8 +29,9 @@ body{
 .title{
     margin-left: 5%;
     margin-top: 75px;
-    margin-bottom: 2%;
+    margin-bottom: 30px;
     font-weight: bolder;
     border-left: solid black 5px;
     padding-left: 15px;
+    color: black;
 }

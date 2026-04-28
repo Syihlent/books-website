@@ -5,43 +5,59 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #FEFAF6;
+    background: rgb(24, 18, 108);
     margin: 0;
-    padding: 30px 30px;
-    color: #4c2a03;
 }
 
-.header {
-   
+.header {  
     margin-bottom: 50px;
 }
 
-.header h1 {
-    font-size: 28px;
-    margin: 0 0 10px 0;
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    color: lightsteelblue;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
 }
 
-.header hr {
-    border: none;
-    height: 3px;
-    background: #333;
-    width: 100%;
-    margin: 0;
+.navbar-links{
+    list-style-type: none;
+    display: flex;
+    gap:50px;
+}
+
+.navbar-links a{
+    color: #c9d1ea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links a:hover{
+    color: #faf9f5;
+    transition-duration: 1s;
 }
 
 .item {
     display: flex;
     align-items: center;
     gap: 25px;
+    background-color: rgb(255, 231, 186);
+    margin-left: 20px;
     margin-bottom: 45px;
-    max-width: 520px;
+    padding: 20px;
+   
+    border-radius: 10%;
 }
 
 .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 1px solid #333;
+    border: 5px solid #000000;
     flex-shrink: 0;
     overflow: hidden;
     background: #ddd;
@@ -53,18 +69,16 @@ body {
     object-fit: cover;
 }
 
-.content {
-    flex: 1;
-}
 
 .content h3 {
     margin: 0 0 8px 0;
     font-size: 18px;
-    color: #222;
+    color: #000000;
 }
 
 .content p {
     margin: 0;
-    color: #555;
+    color: #000000;
     font-size: 15px;
+    
 }

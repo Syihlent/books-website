@@ -1,0 +1,31 @@
+.table1{
+    border: solid 7px var(--color3);
+    /* border-collapse: separate; */
+    border-spacing: 0;
+    text-align: center;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.table1 th{
+    border: solid 2px var(--color3);
+    border-bottom: solid 5px var(--color3);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 50px;
+    background-color: var(--color2);
+    /* box-shadow: inset -2px var(--color3); */
+}
+
+.table1 td{
+    border: solid 2px var(--color3);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

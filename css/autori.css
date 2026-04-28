@@ -49,15 +49,13 @@ body {
     margin-left: 20px;
     margin-bottom: 45px;
     padding: 20px;
-   
-    border-radius: 10%;
 }
 
 .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid #000000;
+    border: 3px solid #000000;
     flex-shrink: 0;
     overflow: hidden;
     background: #ddd;
@@ -82,3 +80,11 @@ body {
     font-size: 15px;
     
 }
+
+.kontakt-podaci {
+    text-align: right; 
+    margin-left: auto;
+    margin-right: 25px;
+    line-height: 1.5;
+}
+

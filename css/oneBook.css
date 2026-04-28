@@ -4,11 +4,11 @@
     margin-left: 5%;
     margin-top: 15px;
     font-weight: bolder;
-    border-left: solid black 5px;
+    border-left: solid var(--color3) 5px;
     /*border-bottom: solid indigo 2px;*/
     padding-left: 15px;
     font-size: large;
-    color: black;
+    color: var(--color3);
     text-decoration: none;
 }
 .authorLink p{
@@ -52,7 +52,7 @@
     background-color: rgba(255, 255, 255, 0.5); /* I used rgba so opacity doesn't apply to children */
     min-height: 25%;
     border-radius: 25px;
-    border: 5px solid black;
+    border: 5px solid var(--color3);
     flex-shrink: 0;
 }
 .comment h2{
@@ -66,5 +66,68 @@
     /*border: solid green 2px;*/
     padding: 1%;
     overflow-wrap: wrap;
+    text-align: center;
+}
+
+.blackBorderRadius15{
+    border: solid 5px var(--color3);
+    border-radius: 15px;
+}
+
+.blackBorderBottom{
+    border: solid transparent 0px;
+    /* border-bottom: solid 3px black; */
+    border-radius: 5px;
+    
+    /* border-left: solid 3px black; */
+    border: solid 3px var(--color3);
+}
+
+.bookReviewForm{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    height: 500px;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(71, 61, 139, 0.8);
+}
+
+.input1{
+    display: block;
+    height: 50px;
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.width120{
+    width: 120px;
+}
+
+.hoverMouse{
+    cursor: pointer;
+}
+
+.inputTextArea{
+    display: block;
+    height: 300px;
+    width: 80%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.fontLarge{
+    font-size: large;
+}
+
+.fontBold{
+    font-weight: bold;
+}
+
+.textCenter{
     text-align: center;
 }

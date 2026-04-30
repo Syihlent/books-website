@@ -2,6 +2,7 @@
     --color1: rgba(71, 61, 139, 1);
     --color2: aliceblue;
     --color3: black;
+    --color4: lightblue;
 }
 
 body{
@@ -18,6 +19,7 @@ body{
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
 }
 
 .navItem{

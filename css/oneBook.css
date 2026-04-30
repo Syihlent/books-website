@@ -49,6 +49,7 @@
 }
 
 .comment{
+    position: relative;
     background-color: rgba(255, 255, 255, 0.5); /* I used rgba so opacity doesn't apply to children */
     min-height: 25%;
     border-radius: 25px;
@@ -130,4 +131,34 @@
 
 .textCenter{
     text-align: center;
+}
+
+.list1{
+    margin-top: 50px;
+    width: 25%;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color2);
+    font-size: large;
+}
+
+.topLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.topRight{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.lightBlueStyle{
+    color: var(--color1);
+    border-radius: 5px;
+    background-color: var(--color4);
+    padding: 5px;
+    margin: 10px;
 }

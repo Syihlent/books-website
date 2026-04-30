@@ -44,18 +44,28 @@ body {
 .item {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     background-color: rgb(255, 231, 186);
+    border: 5px outset rgba(0, 0, 0, 0.436);
     margin-left: 20px;
     margin-bottom: 45px;
     padding: 20px;
+}
+
+.item-link{
+    text-decoration: none;
+    display: block;
+}
+
+.item-link:hover{
+    transform: translateY(-2px);
 }
 
 .avatar {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 3px solid #000000;
+    border: 8px ridge #17053ed3;
     flex-shrink: 0;
     overflow: hidden;
     background: #ddd;
@@ -81,7 +91,7 @@ body {
     
 }
 
-.kontakt-podaci {
+.author-info {
     text-align: right; 
     margin-left: auto;
     margin-right: 25px;

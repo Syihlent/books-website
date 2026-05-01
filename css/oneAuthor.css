@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(24, 18, 108);
+    margin: 0;
+}
+
+.header {  
+    margin-bottom: 50px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    color: lightsteelblue;
+    padding: 15px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+ 
+}
+
+.navbar-links{
+    list-style-type: none;
+    display: flex;
+    gap:50px;
+}
+
+.navbar-links a{
+    color: #b4bdda;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links a:hover{
+    color: #faf9f5;
+    transition-duration: 0.7s;
+}
+
+.profile{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    color: aliceblue;
+    gap: 10%;
+}
+
+.profile-info{
+    font-size: 160%;
+    padding-left: 10%;
+}
+
+.profile-info h1{
+    margin-top: 55px;
+}
+
+.profile-image img{
+    border: 5px ridge black;
+    width: 65%;
+}
+
+
+.rating-bar{
+    margin-top: 55px;
+    padding: 15px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.rating-heading{
+    color: rgb(192, 221, 255);
+    font-weight: bold;
+    font-size: 210%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stars{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6%;
+}
+
+.stars input{
+    display: none;
+}
+
+.stars label{
+    font-size: 230%;
+    color: yellow;
+    opacity: 0.5;
+}
+
+.stars label:hover, .stars label:hover ~ label{
+    opacity: 1;
+}
+
+.about{
+    background-color: wheat;
+}
+
+.information{
+    padding: 25px;
+}
+
+.authors-books{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.authors-books img{
+    border: 5px black ridge;
+}

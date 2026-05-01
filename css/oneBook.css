@@ -104,9 +104,10 @@
     width: 80%;
     padding: 5px;
     box-sizing: border-box;
+    font-family: "PressStart2P";
 }
-.width120{
-    width: 120px;
+.width200{
+    width: 200px;
 }
 
 .hoverMouse{
@@ -119,6 +120,7 @@
     width: 80%;
     padding: 15px;
     box-sizing: border-box;
+    font-family: "PressStart2P";
 }
 
 .fontLarge{
@@ -171,6 +173,9 @@ ul.list1{
     background-color: var(--color4);
     padding: 5px;
     margin: 10px;
+    /*border-left: solid 5px var(--color1);
+    border-bottom: solid 5px var(--color1);*/
+    border: solid 3px var(--color1);
 }
 
 .lightRedStyle{
@@ -179,6 +184,9 @@ ul.list1{
     background-color: var(--color5);
     padding: 5px;
     margin: 10px;
+    /*border-left: solid 5px var(--color6);
+    border-bottom: solid 5px var(--color6);*/
+    border: solid 3px var(--color6);
 }
 
 .bookInfoContainer{
@@ -189,4 +197,10 @@ ul.list1{
 }
 .bookInfoContainer ul{
     text-align: center;
+}
+
+.commentTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }

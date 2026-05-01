@@ -25,7 +25,7 @@ body{
     flex-direction: column;
     color: var(--color2);
     font-size: large;
-    font-family: Arial, Helvetica, sans-serif;
+/*     font-family: Arial, Helvetica, sans-serif; */
     background-color: var(--color1);
     max-width: 350px;
     min-width: 250px;
@@ -57,8 +57,9 @@ body{
 .bookCardTitle{
     padding: 5px;
     color: var(--color1);
-    border-bottom: solid 3px var(--color5);
-    border-left: solid 3px var(--color5);
+    border-bottom: solid 5px var(--color5);
+    border-left: solid 5px var(--color5);
+/*     box-shadow: -5px 5px 5px var(--color5); */
     font-weight: bolder;
     font-size: larger;
     margin-left: auto;

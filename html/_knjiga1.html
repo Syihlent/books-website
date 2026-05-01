@@ -12,7 +12,7 @@
             <a class="navItem" href="../index.html">Каталог</a>
             <a class="navItem" href="">Аутори</a>
         </nav>
-        <h1 class="title">Књига 1</h1>
+        <h1 class="title indigoStyle">Књига 1</h1>
         <a href="autor1.html" class="authorLink">
             <p>*** Аутор 1, треба на чирилици ***</p>
             <img src="../assets/linkIcon1_black.svg" alt="<- link">
@@ -33,9 +33,11 @@
 
             <div class="commentContainer">
                 <div class="comment">
-                    <p class="topLeft">30.4.2026.</p>
-                    <p class="topRight">ID Корисника: 1</p>
-                    <h2>*** наслов коментара, треба на ћирилици ***</h2>
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Aleksa Петровић</div>
+                        <div class="lightRedStyle">28.4.2026.</div>
+                    </div>
+<!--                     <h2>*** наслов коментара, треба на ћирилици ***</h2> -->
                     <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
                      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
                      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
@@ -46,21 +48,25 @@
                     ***</p>
                 </div>
                 <div class="comment">
-                    <p class="topLeft">ID Књиге: 1</p>
-                    <p class="topRight">ID Корисника: 2</p>
-                    <h2>*** наслов коментара, треба на ћирилици ***</h2>
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Marko Петровић</div>
+                        <div class="lightRedStyle">29.4.2026.</div>
+                    </div>
+<!--                     <h2>*** наслов коментара, треба на ћирилици ***</h2> -->
+                    <p class="marginTopCommentP">*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
+                </div>
+                <div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Nikola Петровић</div>
+                        <div class="lightRedStyle">30.4.2026.</div>
+                    </div>
                     <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
                 </div>
                 <div class="comment">
-                    <p class="topLeft">ID Књиге: 1</p>
-                    <p class="topRight">ID Корисника: 3</p>
-                    <h2>*** наслов коментара, треба на ћирилици ***</h2>
-                    <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
-                </div>
-                <div class="comment">
-                    <p class="topLeft">ID Књиге: 1</p>
-                    <p class="topRight">ID Корисника: 4</p>
-                    <h2>*** наслов коментара, треба на ћирилици ***</h2>
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Filip Петровић</div>
+                        <div class="lightRedStyle">1.5.2026.</div>
+                    </div>
                     <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
                 </div>
             </div>
@@ -82,7 +88,7 @@
         <form class="bookReviewForm blackBorderRadius15">
             <input type="text" placeholder="Наслов рецензије" class="input1 blackBorderBottom fontLarge textCenter fontBold">
             <textarea placeholder="Ваша рецензија..." class="inputTextArea blackBorderBottom fontLarge"></textarea>
-            <input type="submit" value="Поставите" class="input1 blackBorderBottom width120 fontLarge hoverMouse">
+            <input type="submit" value="Поставите" class="input1 blackBorderBottom width200 fontLarge hoverMouse">
         </form>
     </body>
 </html>

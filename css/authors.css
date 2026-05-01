@@ -38,7 +38,7 @@ body {
 
 .navbar-links a:hover{
     color: #faf9f5;
-    transition-duration: 1s;
+    transition-duration: 0.7s;
 }
 
 .item {

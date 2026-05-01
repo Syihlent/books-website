@@ -39,7 +39,7 @@ body {
 
 .navbar-links a:hover{
     color: #faf9f5;
-    transition-duration: 1s;
+    transition-duration: 0.7s;
 }
 
 .profile{
@@ -60,5 +60,44 @@ body {
 }
 
 .profile-image img{
+    border: 5px ridge black;
     width: 65%;
+}
+
+
+.rating-bar{
+    margin-top: 55px;
+    padding: 15px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.rating-heading{
+    color: rgb(192, 221, 255);
+    font-weight: bold;
+    font-size: 210%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stars{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6%;
+}
+
+.stars input{
+    display: none;
+}
+
+.stars label{
+    font-size: 230%;
+    color: yellow;
+    opacity: 0.5;
+}
+
+.stars label:hover, .stars label:hover ~ label{
+    opacity: 1;
 }

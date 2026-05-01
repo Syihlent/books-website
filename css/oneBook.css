@@ -134,13 +134,23 @@
 }
 
 .list1{
-    margin-top: 50px;
+/*     margin-top: 50px; */
     width: 25%;
     padding: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0px;
+/*     margin-left: auto; */
+/*     margin-right: auto; */
     background-color: var(--color2);
     font-size: large;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    
+    overflow-y: scroll;
+}
+ul.list1{
+    justify-content: center;
 }
 
 .topLeft{
@@ -161,4 +171,22 @@
     background-color: var(--color4);
     padding: 5px;
     margin: 10px;
+}
+
+.lightRedStyle{
+    color: var(--color6);
+    border-radius: 5px;
+    background-color: var(--color5);
+    padding: 5px;
+    margin: 10px;
+}
+
+.bookInfoContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    height: 200px;
+}
+.bookInfoContainer ul{
+    text-align: center;
 }

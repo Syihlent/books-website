@@ -101,3 +101,21 @@ body {
 .stars label:hover, .stars label:hover ~ label{
     opacity: 1;
 }
+
+.about{
+    background-color: wheat;
+}
+
+.information{
+    padding: 25px;
+}
+
+.authors-books{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.authors-books img{
+    border: 5px black ridge;
+}

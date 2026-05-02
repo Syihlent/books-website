@@ -4,11 +4,11 @@
     margin-left: 5%;
     margin-top: 15px;
     font-weight: bolder;
-    border-left: solid black 5px;
+    border-left: solid var(--color3) 5px;
     /*border-bottom: solid indigo 2px;*/
     padding-left: 15px;
     font-size: large;
-    color: black;
+    color: var(--color3);
     text-decoration: none;
 }
 .authorLink p{
@@ -49,10 +49,11 @@
 }
 
 .comment{
+    position: relative;
     background-color: rgba(255, 255, 255, 0.5); /* I used rgba so opacity doesn't apply to children */
     min-height: 25%;
     border-radius: 25px;
-    border: 5px solid black;
+    border: 5px solid var(--color3);
     flex-shrink: 0;
 }
 .comment h2{
@@ -67,4 +68,153 @@
     padding: 1%;
     overflow-wrap: wrap;
     text-align: center;
+}
+
+.borderRadius15{
+/*     border: solid 5px var(--color3); */
+/*     border: solid 2px var(--color6); */
+    border-bottom: solid 5px var(--color5);
+    border-left: solid 5px var(--color5);
+    border-radius: 15px;
+}
+
+.blackBorderBottom{
+    border: solid transparent 0px;
+    /* border-bottom: solid 3px black; */
+    border-radius: 5px;
+    
+    /* border-left: solid 3px black; */
+    border: solid 3px var(--color3);
+}
+
+.bookReviewForm{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    height: 500px;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(71, 61, 139, 0.8);
+}
+
+.input1{
+    display: block;
+    height: 50px;
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: "PressStart2P";
+}
+.width200{
+    width: 200px;
+}
+
+.hoverMouse{
+    cursor: pointer;
+}
+
+.inputTextArea{
+    display: block;
+    height: 300px;
+    width: 80%;
+    padding: 15px;
+    box-sizing: border-box;
+    font-family: "PressStart2P";
+}
+
+.fontLarge{
+    font-size: large;
+}
+
+.fontBold{
+    font-weight: bold;
+}
+
+.textCenter{
+    text-align: center;
+}
+
+.list1{
+/*     margin-top: 50px; */
+    width: 25%;
+    padding: 25px;
+    margin: 0px;
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+    background-color: var(--color2);
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    
+    overflow-y: scroll;
+}
+ul.list1{
+    justify-content: center;
+}
+
+.topLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.topRight{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.lightBlueStyle{
+    color: var(--color1);
+    border-radius: 5px;
+    background-color: var(--color4);
+    padding: 5px;
+    margin: 10px;
+    /*border-left: solid 5px var(--color1);
+    border-bottom: solid 5px var(--color1);*/
+    border: solid 3px var(--color1);
+}
+a.lightBlueStyle, h3.lightBlueStyle, a.lightRedStyle, h3.lightRedStyle{
+    margin-left: 5%;
+}
+
+.lightRedStyle{
+    color: var(--color6);
+    border-radius: 5px;
+    background-color: var(--color5);
+    padding: 5px;
+    margin: 10px;
+    /*border-left: solid 5px var(--color6);
+    border-bottom: solid 5px var(--color6);*/
+    border: solid 3px var(--color6);
+}
+
+.bookInfoContainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    height: 200px;
+}
+.bookInfoContainer ul{
+    text-align: center;
+}
+
+.commentTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.submit1:hover{
+    border: solid 0px transparent;
+    border-left: solid 7px var(--color5);
+    border-bottom: solid 7px var(--color5);
+    background-color: var(--color2);
+    transition: all 0.1s;
 }

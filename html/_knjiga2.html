@@ -12,27 +12,77 @@
             <a class="navItem" href="../index.html">Каталог</a>
             <a class="navItem" href="">Аутори</a>
         </nav>
-        <h1 class="title">Књига 1</h1>
-        <a href="autor2.html" class="authorLink">
-            <p>*** Autor 2, treba na cirilici ***</p>
+        <h1 class="title indigoStyle">Књига 2</h1>
+        <a href="autor1.html" class="authorLink lightBlueStyle fitContent">
+            <p>*** Аутор 2, треба на чирилици ***</p>
             <img src="../assets/linkIcon1_black.svg" alt="<- link">
         </a>
         <div class="oneBookCommentsContainer">
-            <div class="bookCard">
+            <div class="bookCard width550">
                 <img class="bookCardImage" src="" alt="Књига 2">
                 <div class="bookCardTitle">
-                    Књига 1
+                    Књига 2
                 </div>
-                <div class="bookCardDescription">
-                    Опис књиге 1, текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
-                </div>
+                <ul class="bookCardDescription">
+                    <li>Autor 2</li>
+                    <li>Fantazija</li>
+                    <li>499 din</li>
+                </ul>
             </div>
 
             <div class="commentContainer">
                 <div class="comment">
-                    <h2>*** naslov komentara, treba na cirilici ***</h2>
-                    <p>*** komentar, treba na cirilici ***</p>
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Петар Петровић</div>
+                        <div class="lightRedStyle">29.4.2026.</div>
+                    </div>
+                    <!--<div class="topLeft lightBlueStyle">Петар Петровић</div>
+                    <div class="topRight lightRedStyle">29.4.2026.</div>
+                    <h2>*** наслов коментара, треба на ћирилици ***</h2>-->
+                    <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
+                </div>
+                <div class="comment">
+                    <div class="commentTop">
+                    <div class="lightBlueStyle">Алекса Золарек</div>
+                    <div class="lightRedStyle">30.4.2026.</div>
+                    </div>
+                    <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
+                </div>
             </div>
         </div>
+        
+        <div class="bookInfoContainer">
+            <div class="borderRadius15 list1">Опис књиге 1, текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+            </div>
+            <ul class="borderRadius15 list1">
+                <li>Формат: 108 x 175 mm</li>
+                <li>Број страна: 56</li>
+                <li>ИСБН: 1111111111112</li>
+            </ul>
+        </div>
+
+        <h3 class="title lightRedStyle fitContent" style="margin-top: 25px;">Напишите рецензију</h3>
+        <form class="bookReviewForm borderRadius15">
+            <input type="text" placeholder="Наслов рецензије" class="input1 blackBorderBottom fontLarge textCenter fontBold">
+            <textarea placeholder="Ваша рецензија..." class="inputTextArea blackBorderBottom fontLarge"></textarea>
+            <input type="submit" value="Поставите" class="input1 blackBorderBottom width200 fontLarge hoverMouse submit1">
+        </form>
     </body>
 </html>

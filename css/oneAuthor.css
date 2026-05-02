@@ -19,7 +19,7 @@ body {
     align-items: center;
     background-color: rgb(0, 0, 0);
     color: lightsteelblue;
-    padding: 15px 0;
+    padding: 15px 10px;
     font-family: Arial, Helvetica, sans-serif;
     height: 30px;
  
@@ -43,7 +43,6 @@ body {
 }
 
 .profile{
-    margin-top: 80px;
     display: flex;
     justify-content: space-around;
     color: aliceblue;
@@ -60,7 +59,7 @@ body {
 }
 
 .profile-image img{
-    border: 5px ridge black;
+    border: 10px ridge black;
     width: 65%;
 }
 
@@ -76,7 +75,7 @@ body {
 }
 
 .rating-heading{
-    color: rgb(192, 221, 255);
+    color: rgb(223, 226, 78);
     font-weight: bold;
     font-size: 210%;
     font-family: Arial, Helvetica, sans-serif;
@@ -110,6 +109,13 @@ body {
     padding: 25px;
 }
 
+.info-box{
+    background-color: rgb(24, 18, 108);
+    color: aliceblue;
+    border: 5px black outset;
+    padding: 30px;
+}
+
 .authors-books{
     display: flex;
     justify-content: space-around;
@@ -119,3 +125,39 @@ body {
 .authors-books img{
     border: 5px black ridge;
 }
+
+.book-card{
+    text-align: center;
+    font-weight: bold;
+}
+
+.book-card img {
+    width: 65%;
+    border: 7px black ridge;
+}
+
+
+/*responsive part*/
+
+@media (max-width:767px){
+    .profile-info{
+        font-size: 90%;
+    }
+    .profile-info h1{
+        margin-top: 20px;
+    }
+
+    .rating-bar{
+        flex-direction: column;
+    }
+
+    .authors-books{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .book-card{
+        max-width: 600px;
+    }
+}
+

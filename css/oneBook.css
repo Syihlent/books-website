@@ -210,3 +210,11 @@ a.lightBlueStyle, h3.lightBlueStyle, a.lightRedStyle, h3.lightRedStyle{
     display: flex;
     justify-content: space-around;
 }
+
+.submit1:hover{
+    border: solid 0px transparent;
+    border-left: solid 7px var(--color5);
+    border-bottom: solid 7px var(--color5);
+    background-color: var(--color2);
+    transition: all 0.1s;
+}

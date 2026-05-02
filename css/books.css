@@ -31,15 +31,22 @@ body{
     min-width: 250px;
     height: 450px;
     border-radius: 25px;
-    border: solid black 5px;
+/*     border: solid 5px var(--color5); */
+    border-left: solid 5px var(--color5);
+    border-bottom: solid 5px var(--color5);
     text-decoration: none;
     position: relative;
     overflow: hidden;
 }
-.bookCard:hover{
+a.bookCard:hover{
     cursor: pointer;
-    border: solid var(--color2) 5px;
-    transition: all 0.2s;
+/*     border: solid var(--color2) 5px; */
+    border: solid transparent 0px;
+    border-left: solid 10px var(--color5);
+    border-bottom: solid 15px var(--color5);
+    margin-top: -20px;
+/*     transition: all 0.2s; */
+    transition: all 0.1s;
 }
 
 .bookCardImage{

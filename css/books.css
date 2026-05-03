@@ -134,3 +134,27 @@ a.bookCard:hover{
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.titleBar{
+    display: flex;
+/*     flex-wrap: wrap; */
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 75px;
+    margin-bottom: 30px;
+    height: 70px;
+}
+
+.searchBar{
+    width: 40%;
+    padding: 15px;
+    background-color: var(--color1_2);
+    color: black;
+    font-family: "PressStart2P";
+    font-size: medium;
+    border: solid 5px var(--color1);
+    height: 50%;
+    border-radius: 15px;
+}

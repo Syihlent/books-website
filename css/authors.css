@@ -41,6 +41,11 @@ body {
 .navbar-links a:hover{
     color: #faf9f5;
     transition-duration: 0.4s;
+    text-decoration: none;
+}
+
+a:active{
+    color: black;
 }
 
 .item {

@@ -1,0 +1,81 @@
+.profileInfoContainer{
+    width: 80vw;
+    height: 35vh;
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profilePicture{
+    border-radius: 50%;
+/*     width: 250px; */
+/*     height: 250px; */
+/*     width: 25%; */
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: solid 5px var(--color1);
+    background-color: var(--color2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.profileList{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: var(--color2);
+    border: solid 5px var(--color1);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.reviewsContainer{
+    display: flex;
+    justify-content: space-around;
+    height: 65vh;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bookReviewsDiv, .starReviewsDiv{
+    border-radius: 15px;
+    width: 35%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewDivTitle{
+    border-bottom: solid 5px transparent;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+.bookReviewsDiv .reviewDivTitle{
+    border-color: var(--color1);
+}
+.starReviewsDiv .reviewDivTitle{
+    border-color: var(--color6);
+}
+
+
+.bookReviewsDiv{
+    background-color: var(--color2);
+    border: solid 5px var(--color1);
+}
+
+.starReviewsDiv{
+    background-color: var(--color5);
+    border: solid 5px var(--color6);
+}

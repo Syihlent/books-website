@@ -67,3 +67,17 @@ body{
 .fitContent{
     width: fit-content;
 }
+
+.profilePageDiv{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}

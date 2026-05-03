@@ -10,17 +10,26 @@
     <body>
         <nav class="nav">
             <a class="navItem" href="../index.html">Каталог</a>
-            <a class="navItem" href="">Аутори</a>
+            <a class="navItem" href="../html/autori/autori.html">Аутори</a>
+            <a class="navItem" href="../html/bookAdmin.html">Admin - Knjige</a>
         </nav>
         <h1 class="title indigoStyle">Књига 1</h1>
-        <a href="autor1.html" class="authorLink lightBlueStyle fitContent">
+        <a href="../html/autori/autor1.html" class="authorLink lightBlueStyle fitContent">
             <p>*** Аутор 1, треба на чирилици ***</p>
             <img src="../assets/linkIcon1_black.svg" alt="<- link">
         </a>
 
         <div class="oneBookCommentsContainer">
             <div class="bookCard width550">
-                <img class="bookCardImage" src="" alt="Књига 1">
+                <!--<img class="bookCardImage" src="" alt="Књига 1">-->
+                <div class="centerBookImageContainer">
+                    <div class="bookImageContainer">
+                        <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+                        <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+                        <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+                        <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+                    </div>
+                </div>
                 <div class="bookCardTitle">
                     Књига 1
                 </div>
@@ -85,10 +94,10 @@
         </div>
 
         <h3 class="title lightRedStyle fitContent" style="margin-top: 25px;">Напишите рецензију</h3>
-        <form class="bookReviewForm borderRadius15">
+        <form class="bookReviewForm borderRadius15" method="post">
 <!--             <input type="text" placeholder="Наслов рецензије"  class="input1 blackBorderBottom fontLarge textCenter fontBold"> -->
-            <input type="text" placeholder="Vase ime i prezime"  class="input1 blackBorderBottom fontLarge textCenter fontBold">
-            <textarea placeholder="Ваша рецензија..." class="inputTextArea blackBorderBottom fontLarge"></textarea>
+            <input type="text" placeholder="Vase ime i prezime" required class="input1 blackBorderBottom fontLarge textCenter fontBold">
+            <textarea placeholder="Ваша рецензија..." required class="inputTextArea blackBorderBottom fontLarge"></textarea>
             <input type="submit" value="Поставите" class="input1 blackBorderBottom width200 fontLarge hoverMouse submit1">
 <!--             <button type="submit" class="input1 blackBorderBottom width200 fontLarge hoverMouse submit1">Поставите</button> -->
         </form>

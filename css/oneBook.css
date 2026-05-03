@@ -218,3 +218,31 @@ a.lightBlueStyle, h3.lightBlueStyle, a.lightRedStyle, h3.lightRedStyle{
     background-color: var(--color2);
     transition: all 0.1s;
 }
+
+.bookImageContainer{
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    overflow-x: scroll;
+    gap: 15px;
+    padding: 15px;
+/*     min-width: fit-content; */
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+    min-width: 50%;
+    max-width: 100%;
+}
+
+.bookImage{
+    height: 55%;
+    border-radius: 15px;
+    width: fit-content;
+    /* border: solid red 2px; */
+}
+
+.centerBookImageContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}

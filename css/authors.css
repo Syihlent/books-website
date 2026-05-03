@@ -1,12 +1,14 @@
+@import url(style.css);
+
 *{
     padding: 0;
     margin: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: rgb(24, 18, 108);
-    margin: 0;
+    font-family: "PressStart2P";
+    src: url("../fonts/PressStart2P-Regular.ttf");
+    background: var(--color1);
 }
 
 .header {  
@@ -18,9 +20,8 @@ body {
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 0, 0);
-    color: lightsteelblue;
+    color: aliceblue;
     padding: 15px;
-    font-family: Arial, Helvetica, sans-serif;
     height: 30px;
 }
 
@@ -31,14 +32,15 @@ body {
 }
 
 .navbar-links a{
-    color: #a6b1d1;
+    color: #bac4e3;
     text-decoration: none;
     font-weight: bold;
+
 }
 
 .navbar-links a:hover{
     color: #faf9f5;
-    transition-duration: 0.7s;
+    transition-duration: 0.4s;
 }
 
 .item {
@@ -46,7 +48,7 @@ body {
     align-items: center;
     gap: 30px;
     background-color: rgb(255, 231, 186);
-    border: 5px outset rgba(0, 0, 0, 0.436);
+    border: 5px outset var(--color5);
     margin-left: 20px;
     margin-bottom: 45px;
     padding: 20px;
@@ -80,16 +82,15 @@ body {
 
 .content h3 {
     margin: 0 0 8px 0;
-    font-size: 20px;
-    color: #000000;
+    font-size: 15px;
+    text-shadow: #000000;
 }
 
 .content p {
     margin: 0;
     color: #000000;
-    font-size: 15px;
-    word-break: break-word;
-    
+    font-size: 10px;
+    word-break: break-word;    
 }
 
 .author-info {

@@ -1,10 +1,13 @@
+@import url(style.css);
+
 *{
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "PressStart2P";
+    src: url("../fonts/PressStart2P-Regular.ttf");
     background: rgb(24, 18, 108);
     margin: 0;
 }
@@ -20,7 +23,6 @@ body {
     background-color: rgb(0, 0, 0);
     color: lightsteelblue;
     padding: 15px 10px;
-    font-family: Arial, Helvetica, sans-serif;
     height: 30px;
  
 }
@@ -42,15 +44,18 @@ body {
     transition-duration: 0.7s;
 }
 
+
+
 .profile{
     display: flex;
     justify-content: space-around;
     color: aliceblue;
+    text-shadow: 1px 4px black;
     gap: 10%;
 }
 
 .profile-info{
-    font-size: 160%;
+    font-size: 150%;
     padding-left: 10%;
 }
 
@@ -76,9 +81,9 @@ body {
 
 .rating-heading{
     color: rgb(223, 226, 78);
+    text-shadow: 1px 3px rgba(171, 161, 11, 0.718);
     font-weight: bold;
     font-size: 210%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .stars{
@@ -102,7 +107,7 @@ body {
 }
 
 .about{
-    background-color: wheat;
+    background-color: var(--color5);
 }
 
 .information{
@@ -110,8 +115,9 @@ body {
 }
 
 .info-box{
-    background-color: rgb(24, 18, 108);
+    background-color: var(--color1);
     color: aliceblue;
+    text-shadow: 1px 5px black;
     border: 5px black outset;
     padding: 30px;
 }
@@ -129,6 +135,8 @@ body {
 .book-card{
     text-align: center;
     font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 .book-card img {

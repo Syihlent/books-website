@@ -56,6 +56,8 @@
     border-radius: 25px;
     border: 5px solid var(--color3);
     flex-shrink: 0;
+    text-decoration: none;
+    color: var(--color3);
 }
 .comment h2{
     text-align: center;

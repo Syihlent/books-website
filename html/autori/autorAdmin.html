@@ -19,6 +19,12 @@
 
     <h1>аутори</h1>
 
+    <div class="search-box">
+        <input type="text" placeholder="Име..."> 
+        <input type="text" placeholder="Презиме...">
+        <button>Претражи</button>
+    </div>
+
     <table>
         <tr>
             <th>Име</th>
@@ -61,5 +67,38 @@
             <td>Mika@gmail.com</td>
         </tr>
     </table>
+
+
+    <div class="crud">
+        <div>
+            <label for="ime">Име</label>
+            <input type="text" id="ime" value="Име">
+        </div>
+        <div>
+            <label for="prezime">Презиме</label>
+            <input type="text" id="prezime" value="Презиме">
+        </div>
+        <div>
+            <label for="dat_rodj">Датум рођења</label>
+            <input type="date" name="" id="dat_rodj">
+        </div>
+        <div>
+            <label for="drzava">Држава</label>
+            <input type="text" id="drzava" value="Држава">
+        </div>
+        <div>
+            <label for="tel">Број телефона</label>
+            <input type="tel" name="" id="tel" value="Број телефона">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="" id="email" value="Email">
+        </div>
+        <div class="buttons">
+            <button>Измени</button>
+            <button>Додај</button>
+            <button>Избриши</button>
+        </div>
+    </div>
 </body>
 </html>

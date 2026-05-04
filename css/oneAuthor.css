@@ -1,10 +1,13 @@
+@import url(style.css);
+
 *{
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "PressStart2P";
+    src: url("../fonts/PressStart2P-Regular.ttf");
     background: rgb(24, 18, 108);
     margin: 0;
 }
@@ -19,8 +22,7 @@ body {
     align-items: center;
     background-color: rgb(0, 0, 0);
     color: lightsteelblue;
-    padding: 15px 0;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px 10px;
     height: 30px;
  
 }
@@ -42,16 +44,18 @@ body {
     transition-duration: 0.7s;
 }
 
+
+
 .profile{
-    margin-top: 80px;
     display: flex;
     justify-content: space-around;
     color: aliceblue;
+    text-shadow: 1px 4px black;
     gap: 10%;
 }
 
 .profile-info{
-    font-size: 160%;
+    font-size: 150%;
     padding-left: 10%;
 }
 
@@ -60,7 +64,7 @@ body {
 }
 
 .profile-image img{
-    border: 5px ridge black;
+    border: 10px ridge black;
     width: 65%;
 }
 
@@ -76,10 +80,10 @@ body {
 }
 
 .rating-heading{
-    color: rgb(192, 221, 255);
+    color: rgb(223, 226, 78);
+    text-shadow: 1px 3px rgba(171, 161, 11, 0.718);
     font-weight: bold;
     font-size: 210%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .stars{
@@ -103,11 +107,19 @@ body {
 }
 
 .about{
-    background-color: wheat;
+    background-color: var(--color5);
 }
 
 .information{
     padding: 25px;
+}
+
+.info-box{
+    background-color: var(--color1);
+    color: aliceblue;
+    text-shadow: 1px 5px black;
+    border: 5px black outset;
+    padding: 30px;
 }
 
 .authors-books{
@@ -119,3 +131,41 @@ body {
 .authors-books img{
     border: 5px black ridge;
 }
+
+.book-card{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.book-card img {
+    width: 95%;
+    border: 7px black ridge;
+}
+
+
+/*responsive part*/
+
+@media (max-width:767px){
+    .profile-info{
+        font-size: 90%;
+    }
+    .profile-info h1{
+        margin-top: 20px;
+    }
+
+    .rating-bar{
+        flex-direction: column;
+    }
+
+    .authors-books{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .book-card{
+        max-width: 600px;
+    }
+}
+

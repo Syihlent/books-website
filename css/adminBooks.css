@@ -16,6 +16,12 @@
     --colorPages_f: rgba(255, 165, 0, 1);
 
     --colorTooltipBackground: rgba(0, 0, 0, 0.9);
+
+    --color1_3: rgb(0, 1, 61);
+}
+
+body{
+    /* background-color: var(--colorGenre); */
 }
 
 .table1{
@@ -41,6 +47,7 @@
     position: sticky;
     top: 0px;
     background-color: var(--color2);
+    color: var(--color3);
     /* box-shadow: inset -2px var(--color3); */
 }
 
@@ -62,17 +69,21 @@ td p{
     border: solid 5px
 }
 
-tr{
-/*     position: relative; */
-}
 .linkToForm{
     position: absolute;
     width: 80%;
     border: solid red 5px;
 
 }
+tr{
+    /* background-color: var(--color1); */
+    background-color: var(--colorGenre_f);
+    color: var(--color3);
+}
 tr:nth-child(even){
-    background-color: rgba(0, 0, 0, 0.2)
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    /* background-color: var(--color1_3); */
+    background-color: var(--colorPrice_f);
 }
 tr:hover{
     cursor: pointer;

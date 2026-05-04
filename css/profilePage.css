@@ -1,3 +1,10 @@
+body{
+    /* background: linear-gradient(to bottom, wheat, var(--color1_2)) fixed; */
+    /* background: linear-gradient(to bottom, var(--color1_2), var(--color1)) fixed; */
+    background: linear-gradient(to bottom, wheat, var(--color1)) fixed;
+    /* background: linear-gradient(to bottom, var(--color1), wheat) fixed; */
+}
+
 .profileInfoContainer{
     width: 80vw;
     height: 35vh;
@@ -10,13 +17,14 @@
 }
 
 .profilePicture{
+    position: relative;
     border-radius: 50%;
 /*     width: 250px; */
 /*     height: 250px; */
 /*     width: 25%; */
     height: 100%;
     aspect-ratio: 1/1;
-    border: solid 5px var(--color1);
+    /* border: solid 5px var(--color1); */
     background-color: var(--color2);
     display: flex;
     align-items: center;
@@ -25,12 +33,13 @@
 }
 
 .profileList{
+    position: relative;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 25px;
     background-color: var(--color2);
-    border: solid 5px var(--color1);
+    /* border: solid 5px var(--color1); */
     border-radius: 15px;
     padding: 25px;
     height: 100%;
@@ -45,21 +54,23 @@
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
 }
 
 .bookReviewsDiv, .starReviewsDiv{
     border-radius: 15px;
     width: 35%;
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .reviewDivTitle{
     border-bottom: solid 5px transparent;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding-bottom: 15px;
 }
 .bookReviewsDiv .reviewDivTitle{
@@ -72,10 +83,66 @@
 
 .bookReviewsDiv{
     background-color: var(--color2);
-    border: solid 5px var(--color1);
+    /* border: solid 5px var(--color1); */
 }
 
 .starReviewsDiv{
     background-color: var(--color5);
-    border: solid 5px var(--color6);
+    /* border: solid 5px var(--color6); */
+}
+
+
+
+.profileCommentsContainer{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 90%;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+}
+
+.commentDiv{
+    background-color: var(--color1_2);
+    border-color: var(--color6);
+
+    border: solid 0px transparent;
+    border-left: solid 5px var(--color6);
+    border-bottom: solid 5px var(--color6);
+}
+
+.gradientBorder{
+    position: absolute;
+    width: calc(100% + 15px);
+    height: calc(100% + 15px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* border-radius: 20px; */
+    border-radius: inherit;
+}
+.bookReviewsDiv .gradientBorder, .starReviewsDiv .gradientBorder, .profileList .gradientBorder{
+    border-radius: 20px;
+}
+
+
+
+/* change color for gradient border */
+.bookReviewsDiv .gradientBorder {
+    background: linear-gradient(to bottom, var(--color1), var(--color2)) fixed;
+}
+.starReviewsDiv .gradientBorder {
+    background: linear-gradient(to bottom, var(--color6), var(--color5)) fixed;
+}
+.profilePicture .gradientBorder{
+    background: linear-gradient(to bottom, black, silver) fixed;
+}
+.profileList .gradientBorder{
+    background: linear-gradient(to bottom, black, silver) fixed;
 }

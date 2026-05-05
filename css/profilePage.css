@@ -7,13 +7,14 @@ body{
 
 .profileInfoContainer{
     width: 80vw;
-    height: 35vh;
+    min-height: 50h;
     display: flex;
     gap: 15px;
     margin-left: auto;
     margin-right: auto;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .profilePicture{
@@ -22,7 +23,7 @@ body{
 /*     width: 250px; */
 /*     height: 250px; */
 /*     width: 25%; */
-    height: 100%;
+    /* height: 100%; */
     aspect-ratio: 1/1;
     /* border: solid 5px var(--color1); */
     background-color: var(--color2);
@@ -30,6 +31,7 @@ body{
     align-items: center;
     justify-content: center;
     object-fit: cover;
+    min-height: 35vh;
 }
 
 .profileList{
@@ -42,9 +44,12 @@ body{
     /* border: solid 5px var(--color1); */
     border-radius: 15px;
     padding: 25px;
-    height: 100%;
+    /* height: 100%; */
     box-sizing: border-box;
     text-align: center;
+    min-width: 25vw;
+    /* height: fit-content; */
+    min-height: 35vh;
 }
 
 .reviewsContainer{
@@ -195,3 +200,24 @@ body{
    
     scrollbar-color: var(--color6) transparent;
 }
+
+
+
+/* .logoutDiv1{
+    background-color: black;
+    position: relative;
+    color: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "PressStart2P";
+    padding: 10px;
+    border: solid var(--color6) 5px;
+    border-radius: 15px;
+}
+.logoutDiv1:hover{
+    background-color: var(--color5);
+    color: black;
+    transition: all 0.2s;
+    cursor: pointer;
+} */

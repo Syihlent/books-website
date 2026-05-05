@@ -140,6 +140,8 @@ form{
     margin-right: auto;
     margin-top: 50px;
     /*font-family: "PressStart2P";*/
+    position: relative;
+    gap: 1vw;
 }
 
 form li{
@@ -150,7 +152,7 @@ form li:hover .tooltip{
 }
 
 form ul{
-    width: 45%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -179,13 +181,18 @@ form textarea{
     bottom: 115%;
     background-color: var(--colorTooltipBackground);
     color: var(--color2);
-    height: 150px;
+    /* height: 150px; */
     padding: 15px;
     box-sizing: border-box;
-    width: 100%;
+    width: 35vw;
+    min-height: 150px;
+    height: fit-content;
     display: flex;
     align-items: center;
-    border-radius: 15px;;
+    border-radius: 15px;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .lightBlueStyle{
@@ -201,6 +208,27 @@ form textarea{
 /*a.lightBlueStyle, h3.lightBlueStyle, a.lightRedStyle, h3.lightRedStyle{
     margin-left: 5%;
 }*/
+
+button{
+    position: relative;
+    font-family: "PressStart2P";
+    padding: 15px;
+}
+button::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+}
+button:hover::after{
+    opacity: 0.2;
+}
 
 .lightRedStyle{
     color: var(--color3);
@@ -222,4 +250,41 @@ form textarea{
 
 .mouseHover:hover{
     cursor: pointer;
+}
+
+.imgFull{
+    width: 25%;
+    align-self: center;
+    /* height: auto; */
+    aspect-ratio: 2/3;
+    border-radius: 25px;
+    border: solid 5px var(--color1);
+}
+
+/* td img{
+    height: 150px;
+}
+
+.table1 .padding0{
+    padding: 0;
+}
+
+.tooltipDiv{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.tooltipDiv:hover .tooltip{
+    visibility: visible;
+} */
+
+html{
+    scroll-behavior: smooth;
 }

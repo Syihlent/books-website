@@ -16,6 +16,7 @@
             <a class="navItem" href="../html/autori/autori.html">Аутори</a>
             <a class="navItem" href="../html/bookAdmin.html">Админ - Књиге</a>
             <a class="navItem" href="../html/autori/autorAdmin.html">Админ - Аутори</a>
+            <button class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
         </nav>
         <h1 class="title indigoStyle">Админ - књиге</h1>
         <div class="tableContainer">
@@ -36,6 +37,7 @@
                     <th>Цена (дин)</th>
                     <th>Број страна</th>
                     <th>Аутор</th>
+                    <!-- <th>Слика</th> -->
                     <!--<th>екстра</th>-->
                 </tr>
                 <!--<tr>
@@ -517,6 +519,7 @@
                     <td>700</td>
                     <td>78</td>
                     <td>Аутор 1</td>
+                    <!-- <td class="padding0"><div class="tooltipDiv">Слика<span class="tooltip"><img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg"></span></div></td> -->
                 </tr>
 
 
@@ -558,6 +561,7 @@
         </div>
 
         <form id="bookAdminForm" method="post">
+            <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" class="imgFull">
             <ul>
                 <li><input placeholder="Наслов" required class="lightGreenStyle"></li>
                 <li><select required class="lightBlueStyle">
@@ -576,10 +580,15 @@
                 <li><textarea placeholder="URL-ови слика (сваки URL нова линија, такође, први URL ће бити узет као главна слика за приказ на почетној страници)" required class="lightGreenStyle"></textarea></li>
             </ul>
             <div style="width: 100%; text-align: center;">
-                <input type="submit" value="Додајте" class="lightBlueStyle mouseHover" style="width: 30%;">
-                <input type="submit" value="Обришите" formnovalidate class="lightRedStyle mouseHover" style="width: 30%;">
-                <input type="submit" value="Ажурирајте" class="lightGreenStyle mouseHover" style="width: 30%;">
+                <button type="submit" value="add" class="lightBlueStyle mouseHover" style="width: 30%;">Додајте</button>
+                <button type="submit" value="delete" formnovalidate class="lightRedStyle mouseHover" style="width: 30%;">Избришите</button>
+                <button type="submit" value="update" class="lightGreenStyle mouseHover" style="width: 30%;">Ажурирајте</button>
             </div>
         </form>
+        
+        <div class="footer">
+            <a href="https://github.com/Ieontina">Ieontina</a>
+            <a href="https://github.com/Syihlent">Syihlent</a>
+        </div>
     </body>
 </html>

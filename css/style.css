@@ -75,7 +75,8 @@ body{
     background-color: black;
     color: white;
     height: 100%;
-    width: 10%;
+    /* width: 10%; */
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,6 +100,7 @@ body{
     border-radius: 15px;
     /* background-color: var(--color5); */
     /* color: var(--color6); */
+    font-family: "PressStart2P";
 }
 .logoutDiv:hover{
     cursor: pointer;
@@ -121,4 +123,19 @@ body{
 .footer a{
     color: white;
     text-decoration: none;
+}
+
+.nav img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: solid 3px var(--color2);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

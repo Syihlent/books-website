@@ -65,10 +65,20 @@ button{
 
 /*table*/
 
+.table-wrapper {
+    max-height: 400px;  
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+    scrollbar-color: black transparent;
+    scrollbar-width: thin;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
 }
 
 table, th, td {

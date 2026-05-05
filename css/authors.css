@@ -48,6 +48,11 @@ a:active{
     color: black;
 }
 
+h1{
+    padding-left: 60px;
+    padding-top: 20px;
+    color: white;
+}
 
 .search-box{
     display: flex;

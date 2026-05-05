@@ -146,3 +146,52 @@ body{
 .profileList .gradientBorder{
     background: linear-gradient(to bottom, black, silver) fixed;
 }
+
+
+/*Author part*/
+
+.starReviewsDiv{
+    background-color: var(--color5);
+    color:var(--color6);
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.64);
+}
+
+.rating-table{
+    width: 80%;
+    margin: 5px auto;
+}
+
+.rating-table th{
+    padding: 10px;
+    border-bottom: 2px solid var(--color6);
+}
+
+.rating-table th:first-child, .rating-table td:first-child{
+    border-right: 2px solid var(--color6);
+}
+
+.rating-table td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color6);
+}
+
+.rating-table a {
+    text-decoration: none;
+    color: var(--color6);
+}
+
+.star{
+    color: yellow;
+    padding-left: 10px;
+}
+
+.rating-table a:hover {
+    text-decoration: underline;
+}
+
+.table-scroll-container {
+    overflow-y: auto;
+   
+    scrollbar-color: var(--color6) transparent;
+}

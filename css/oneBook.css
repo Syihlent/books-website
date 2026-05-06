@@ -58,6 +58,7 @@
     flex-shrink: 0;
     text-decoration: none;
     color: var(--color3);
+    text-shadow: 1px 1px white;
 }
 .comment h2{
     text-align: center;

@@ -1,3 +1,7 @@
+*{
+    scrollbar-width: thin;
+}
+
 body{
     background-color: wheat;
     /* background-color: rgb(144, 183, 255); */

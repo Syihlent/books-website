@@ -1,5 +1,5 @@
  let authorscardHtml = `
- <a href="../autori/autor2.html" class="item-link">
+ <a href="../autori/autor1.html" class="item-link">
         <div class="item">
             <div class="avatar">
                 <img src="../../images/icon.png" alt="prvi autor">
@@ -21,6 +21,7 @@
         </div>
     </a>
 `
+
 
 async function loadData() {
     try{
@@ -44,6 +45,7 @@ async function addAuthorsToAuthors() {
 
     let AuthorsContainer = document.getElementById('AuthorsContainer');
 
+
     for (let i in data.autori){
         ime = data.autori[i].ime;
         prezime = data.autori[i].prezime;
@@ -54,7 +56,7 @@ async function addAuthorsToAuthors() {
 
 
         let authorscardHtml = `
-            <a href="../autori/autor2.html" class="item-link">
+            <a href="../autori/autor1.html" class="item-link">
                 <div class="item">
                     <div class="avatar">
                         <img src="${slike}" alt="prvi autor">

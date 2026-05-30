@@ -15,7 +15,8 @@ async function loadData(){
 async function addBooksToIndex(){
     let data = await loadData();
 
-    console.log(data.knjige);
+    console.log(data);
+    console.log(data.recenzije);
     if(data == null){
         return;
     }
@@ -41,7 +42,7 @@ async function addBooksToIndex(){
     let authorElement = document.getElementById("author");
     let bookCardElement = document.getElementById("bookCard");
 
-    // titleElement.textContent = title;
+    titleElement.textContent = title;
     // priceElement.textContent = price;
     // genreElement.textContent = genre;
     // authorElement.textContent = author;
@@ -100,6 +101,34 @@ async function addBooksToIndex(){
     document.getElementById("noPages").textContent = `Број страна: ` + bookData.brojStrana;
     document.getElementById("format").textContent = `Формат: ` + bookData.format;
     document.getElementById("bookDescription").textContent = bookData.opis;
+
+
+
+    let commentContainer = document.getElementById("commentContainer");
+    for(let i in data.recenzije){
+        if (data.recenzije[i].idKnjige != id){
+            continue
+        }
+
+        let userId = data.recenzije[i].idKorisnika
+        let user = data.korisnici[userId].ime + " " + data.korisnici[userId].prezime;
+
+        let date = data.recenzije[i].datum.replaceAll("-", ".");
+        date += ".";
+
+        let commentDiv = `
+            <div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">${user}</div>
+                        <div class="lightRedStyle">${date}</div>
+                    </div>
+<!--                     <h2>*** наслов коментара, треба на ћирилици ***</h2> -->
+                    <p>${data.recenzije[i].tekst}</p>
+                </div>
+        `
+
+        commentContainer.insertAdjacentHTML("beforeend", commentDiv);
+    }
 }
 
 addBooksToIndex();

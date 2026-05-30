@@ -173,6 +173,7 @@ body {
 
 .authors-books{
     display: flex;
+    justify-content: center;
     gap: 30px;
     overflow-x: auto;
     scrollbar-width: none;
@@ -200,8 +201,6 @@ body {
     transform: translateY(-2px);
     border: 7px rgb(255, 255, 0) inset;
 }
-
-
 
 
 .footer{

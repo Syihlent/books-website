@@ -12,7 +12,7 @@ async function loadData(){
     }
 }
 
-async function addBooksToIndex(){
+async function loadBook(){
     let data = await loadData();
 
     console.log(data);
@@ -75,7 +75,7 @@ async function addBooksToIndex(){
                 <ul class="bookCardDescription">
                     <li id="author">${author}</li>
                     <li id="genre">${genre}</li>
-                    <li id="price">${genre} дин</li>
+                    <li id="price">${price} дин</li>
                 </ul>
             </div>
             `
@@ -131,4 +131,4 @@ async function addBooksToIndex(){
     }
 }
 
-addBooksToIndex();
+loadBook();

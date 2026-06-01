@@ -12,6 +12,12 @@ let isbnForm = document.getElementsByName("isbn")[0];
 let descriptionForm = document.getElementsByName("description")[0];
 let imagesForm = document.getElementsByName("images")[0];
 
+let confirmDialog = document.getElementById("confirmDialog");
+
+let selectedBookId = null;
+let submitter = null;
+let submitData = null;
+
 async function loadData(){
     try{
         let response = await fetch("https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/.json");
@@ -76,6 +82,7 @@ async function addBooks(){
 }
 
 function toAdminForm(bookId){
+    selectedBookId = bookId;
     let img1 = bookAdminForm.getElementsByTagName("img")[0];
     if(img1 != undefined){
         img1.remove();
@@ -130,6 +137,7 @@ addAuthorsToForm();
 
 document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
     event.preventDefault();
+
     // console.log(event.target);
 
     let formData = new FormData(event.target);
@@ -170,9 +178,33 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
             }
         }
     }
-    if(passed){
-        event.target.reset();
-        location.reload();
+
+    submitter = event.submitter.value;
+    submitData = formData.entries();
+
+    if(passed && event.submitter.value !== "delete"){
+
+        //popup
+        confirmDialog.showModal();
+        // add logic for add/edit
+
+        // event.target.reset();
+        // location.reload();
+    }
+    else if(event.submitter.value === "delete"){
+        if(selectedBookId === null){
+            return;
+        }
+
+        //remove book
+        console.log(selectedBookId);
+
+
+        //popup
+        confirmDialog.showModal();
+
+        // event.target.reset();
+        // location.reload();
     }
     // console.log(formData);
 });
@@ -181,3 +213,33 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
 //     console.log(form);
 //     alert(form);
 // }
+
+function addNewBook(bookData){
+    // add new book
+}
+
+function deleteBook(bookId){
+    // delete book, pass bookId or maybeee isbn
+}
+
+function editBook(bookData){
+    // edit book based on data provided
+}
+
+document.getElementById("confirm").addEventListener("click", (event) => {
+    if(submitter === "add"){
+        addNewBook(submitData);
+    }
+    else if(submitter === "delete"){
+        deleteBook(submitData)
+    }
+    else if(submitter === "edit"){
+        editBook(submitData);
+    }
+
+    document.getElementById("confirmDialog").close();
+});
+
+document.getElementById("cancel").addEventListener("click", (event) => {
+    document.getElementById("confirmDialog").close();
+});

@@ -132,3 +132,46 @@ async function loadBook(){
 }
 
 loadBook();
+
+document.getElementById("reviewForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let formData = new FormData(event.target);
+    let passed = true;
+    for(let [key, value] of formData.entries()){
+        console.log(key + " - " + value);
+
+    }
+
+    // add new comment logic here
+
+
+    // submitter = event.submitter.value;
+    // submitData = formData.entries();
+    //
+    // if(passed && event.submitter.value !== "delete"){
+    //
+    //     //popup
+    //     confirmDialog.showModal();
+    //     // add logic for add/edit
+    //
+    //     // event.target.reset();
+    //     // location.reload();
+    // }
+    // else if(event.submitter.value === "delete"){
+    //     if(selectedBookId === null){
+    //         return;
+    //     }
+    //
+    //     //remove book
+    //     console.log(selectedBookId);
+    //
+    //
+    //     //popup
+    //     confirmDialog.showModal();
+    //
+    //     // event.target.reset();
+    //     // location.reload();
+    // }
+    // // console.log(formData);
+});

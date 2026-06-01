@@ -127,3 +127,23 @@ async function addAuthorsToForm(){
 addBooks();
 
 addAuthorsToForm();
+
+document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
+    // console.log(event.target);
+
+    let formData = new FormData(event.target);
+    // console.log(formData["entries"]);
+    console.log("-----------------");
+    for(let [key, value] of formData.entries()){
+        console.log(key + " - " + value);
+    }
+    // console.log(formData);
+
+
+    alert(event);
+});
+
+// async function addNewBook(form){
+//     console.log(form);
+//     alert(form);
+// }

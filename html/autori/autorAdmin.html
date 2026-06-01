@@ -21,8 +21,8 @@
 
     <h1>Aутори</h1>
 
-    <div class="table-wrapper">
-    <table>
+    <div class="table-wrapper" >
+    <table id="tableAdmin">
         <tr>
             <th></th>
             <th>Име</th>
@@ -32,124 +32,14 @@
             <th>Број продатих примерака</th>
             <th>Статус аутора</th>
             <th>Број телефона менаџера</th>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Пера</td>
-            <td>Перић</td>
-            <td>01.01.1996</td>
-            <td>4</td>
-            <td>250.000</td>
-            <td>Активан</td>
-            <td>+381 64 123-4567</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Мика</td>
-            <td>Микић</td>
-            <td>12.12.1974</td>
-            <td>1</td>
-            <td>1005</td>
-            <td>Активан</td>
-            <td>+381 23 123-321</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Лара</td>
-            <td>Ларић</td>
-            <td>07.11.1983</td>
-            <td>7</td>
-            <td>500.000</td>
-            <td>Преминуо</td>
-            <td>+381 61 188-231</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Мика</td>
-            <td>Микић</td>
-            <td>03.02.1974</td>
-            <td>3</td>
-            <td>100.000</td>
-            <td>У пензији</td>
-            <td>+381 61 180-231</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>12.12.1874</td>
-            <td>12</td>
-            <td>800.000</td>
-            <td>У пензији</td>
-            <td>+381 63 000-010</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>26.01.1994</td>
-            <td>0</td>
-            <td>40.000</td>
-            <td>Aктиван</td>
-            <td>+381 63 999-919</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>02.02.2000</td>
-            <td>6</td>
-            <td>70.000</td>
-            <td>Aктиван</td>
-            <td>+381 61 329-919</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>26.01.1994</td>
-            <td>2</td>
-            <td>240.000</td>
-            <td>Aктиван</td>
-            <td>+381 63 549-919</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>26.01.1994</td>
-            <td>2</td>
-            <td>240.000</td>
-            <td>Aктиван</td>
-            <td>+381 63 549-919</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>26.01.1994</td>
-            <td>2</td>
-            <td>240.000</td>
-            <td>Aктиван</td>
-            <td>+381 63 549-919</td>
-        </tr>
-        <tr>
-            <th><img src="../../images/icon.png"></th>
-            <td>Име</td>
-            <td>Презиме</td>
-            <td>26.01.1994</td>
-            <td>2</td>
-            <td>240.000</td>
-            <td>Aктиван</td>
-            <td>+381 63 549-919</td>
-        </tr>
+        </tr>      
     </table>
     </div>
 
     <form id="authorForm" class="crud">
         <div>
             <label for="ime">Име</label>
-            <input type="text" id="ime" placeholder="Име" required>
+            <input type="text" id="ime" placeholder="Име">
         </div>
         <div>
             <label for="prezime">Презиме</label>
@@ -161,11 +51,11 @@
         </div>
         <div>
             <label for="broj-nag">Број освојених награда</label>
-            <input type="number" id="broj-nag" placeholder="Број освојених награда" required>
+            <input type="number" id="broj-nag" placeholder="Број освојених награда" min="0" required>
         </div>
         <div>
             <label for="broj-prim">Број продатих примерака</label>
-            <input type="number" id="broj-prim" placeholder="Број продатих примерака" required>
+            <input type="number" id="broj-prim" placeholder="Број продатих примерака" min="0" required>
         </div>
 
         <div>
@@ -178,13 +68,17 @@
         </div>
         <div>
             <label for="tel">Број телефона</label>
-            <input type="tel" id="tel" value="+381 " required>
+            <input type="tel" id="tel" value="+381 "
+            pattern="^\+381\s?[67]\d{7,8}$" 
+            title="Унесите број у формату: +381 6XXXXXXXX"
+            required>
         </div>
 
         <div class="buttons">
             <button type="button" id="updateBtn">Измени</button>
             <button type="submit" id="addBtn">Додај</button>
             <button type="button" id="deleteBtn">Избриши</button>
+            <div id="add"></div>
         </div>
     </form>
 
@@ -192,5 +86,7 @@
             <a href="https://github.com/Ieontina">Ieontina</a>
             <a href="https://github.com/Syihlent">Syihlent</a>
     </div>
+
+    <script src="../../js/adminAuthor.js"></script>
 </body>
 </html>

@@ -218,7 +218,7 @@ body {
 }
 
 
-/*responsive part*/
+
 
 @media (max-width:767px){
     .profile-info{
@@ -233,12 +233,16 @@ body {
     }
 
     .authors-books{
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        
         gap: 30px;
+        
     }
 
     .book-card{
         max-width: 600px;
     }
+
 }
 

@@ -74,7 +74,6 @@ button{
     gap: 30px;
     background-color: rgb(255, 231, 186);
     border: 5px outset var(--color5);
-    margin-left: 20px;
     margin-bottom: 45px;
     padding: 20px;
 }
@@ -104,7 +103,6 @@ button{
     object-fit: cover;
 }
 
-
 .content h3 {
     margin: 0 0 8px 0;
     font-size: 15px;
@@ -120,9 +118,8 @@ button{
 
 .author-info {
     text-align: right; 
-    margin-left: auto;
-    margin-right: 25px;
     line-height: 1.5;
+    padding-right: 40px;
 }
 
 
@@ -155,6 +152,7 @@ button{
     .content p{
         width: 30;
     }
+    
 
 }
 

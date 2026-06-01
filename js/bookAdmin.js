@@ -129,18 +129,52 @@ addBooks();
 addAuthorsToForm();
 
 document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
+    event.preventDefault();
     // console.log(event.target);
 
     let formData = new FormData(event.target);
     // console.log(formData["entries"]);
     console.log("-----------------");
+    let passed = true;
     for(let [key, value] of formData.entries()){
         console.log(key + " - " + value);
+        if(key === "price"){
+            let reg = /^[1-9]\d*$/;
+            if(reg.test(value) == false){
+                passed = false;
+                priceForm.style = "border: solid red 3px;";
+            }
+            else{
+                priceForm.style = "";
+            }
+        }
+        else if(key === "noPages"){
+            let reg = /^[1-9]\d*$/;
+            if(reg.test(value) == false){
+                passed = false;
+                noPagesForm.style = "border: solid red 3px;";
+            }
+            else{
+                noPagesForm.style = "";
+            }
+        }
+        else if(key === "isbn"){
+            let noDashes = value.replaceAll("-", "");
+            let reg = /^\d{13}$/;
+            if(reg.test(noDashes) == false){
+                passed = false;
+                isbnForm.style = "border: solid red 3px;";
+            }
+            else{
+                isbnForm.style = "";
+            }
+        }
+    }
+    if(passed){
+        event.target.reset();
+        location.reload();
     }
     // console.log(formData);
-
-
-    alert(event);
 });
 
 // async function addNewBook(form){

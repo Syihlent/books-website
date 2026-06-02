@@ -285,6 +285,53 @@ button:hover::after{
     visibility: visible;
 } */
 
+#confirmDialog{
+/*     display: flex; */
+    justify-content: center;
+    align-items: space-around;
+    flex-direction: column;
+    width: 35vw;
+/*     height: 50vh; */
+
+    /*display: block;
+    flex-wrap: auto;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    /*font-family: "PressStart2P";*/
+    /*position: relative;
+    gap: 1vw;*/*/
+}
+
+#confirmDialog input{
+    border: solid var(--color1) 2px;
+    background-color: var(--color1_2);
+    color: var(--color2);
+    font-size: large;
+    font-family: "PressStart2P";
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#confirmDialog input:hover{
+    cursor: pointer;
+}
+
+@media (orientation: portrait){
+    #confirmDialog{
+        width: 50vw;
+/*         height: 80vh; */
+    }
+    #confirmDialog input{
+        margin: 50px 0px;
+    }
+}
+
 html{
     scroll-behavior: smooth;
 }

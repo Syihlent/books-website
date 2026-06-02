@@ -1,17 +1,17 @@
-let btn = document.getElementById('deleteBtn');
-let add = document.getElementById('add');
+const btn = document.getElementById('deleteBtn');
+const dialog = document.getElementById('btnDel')
+const okbtn = document.getElementById('okBTN');
+const cancelbtn = document.getElementById('cancelBTN');
 
-btn.addEventListener('click', () =>{
-    let newHTML = `
-    <!DOCTYPE html>
-        <html lang="sr">
-        <head>
-            <meta charset="UTF-8">
-            <title>Novi Fajl</title>
-        </head>
-        <body>
-            
-        </body>
-        </html>
-    `;
+btn.addEventListener('click', () => {
+    dialog.showModal();
+});
+
+okbtn.addEventListener('click', () =>{
+    dialog.close();
 })
+
+cancelbtn.addEventListener('click', () =>{
+    dialog.close();
+})
+

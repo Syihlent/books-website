@@ -134,3 +134,33 @@ table th:first-child img {
     color: white;
     text-shadow: 1px 2px black;
 }
+
+
+dialog{
+    margin: auto;
+    width: 30%;   
+}
+
+dialog .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(244, 243, 252);
+}
+
+dialog .btns{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    gap: 20px;
+}
+
+dialog .btns button{
+    flex: 1;
+}

@@ -96,6 +96,12 @@ a.bookCard:hover{
     /*word-break: break-all;*/
     overflow-wrap: break-word;
     text-align: center;
+    opacity: 0;
+}
+
+.bookCard:hover .bookCardTitle{
+    opacity: 1;
+    transition: all 0.5s;
 }
 
 .bookCardDescription{

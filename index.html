@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <button class="hamburgerButton" onclick="bringMenu()">
+            X
+        </button>
         <nav class="nav">
             <a class="profilePageDiv" href="html/profilePage.html">
                 <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">
@@ -15,17 +18,26 @@
             <a class="navItem" href="html/autori/autori.html">Аутори</a>
             <a class="navItem" href="html/bookAdmin.html">Админ - Књиге</a>
             <a class="navItem" href="html/autori/autorAdmin.html">Админ - Аутори</a>
-            <button class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
+            <button id="loginButton" class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
+
+            <dialog id="loginDialog">
+                <h3>Login</h3>
+                <form onsubmit="loginUser(event)" class="loginForm">
+                    <input name="username" id="username" type="text" value="" placeholder="Username">
+                    <input name="password" id="password" type="password" value="" placeholder="Password">
+                    <input id="login" type="submit" value="Login">
+                    <input id="register" type="button" value="Registracija" onclick="showRegisterDialog()">
+                </form>
+                <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
+            </dialog>
         </nav>
         <div class="titleBar">
             <h1 class="indigoStyle fitContent">Почетна</h1>
             <input placeholder="Претрага (по наслову или жанру)" class="searchBar">
         </div>
-        <div class="bookContainer">
-            <a class="bookCard" href="html/_knjiga1.html" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
+        <div class="bookContainer" id="bookContainer">
+            <!--<a class="bookCard" href="html/_knjiga1.html" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
                 <img class="bookCardImage" src="">
-<!--                 <div class="bookCardImage" style="background-color: rgba(0, 0, 0, 0.5); width: 100%;"></div> -->
                 <div class="bookCardDim"></div>
                 <div class="bookCardTitle">
                     Књига 1
@@ -35,213 +47,15 @@
                     <li>Акција</li>
                     <li>700 дин</li>
                 </ul>
-            </a>
-
-
-
-
-
-
-
-            <a class="bookCard" href="html/_knjiga2.html" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 2
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 2</li>
-                    <li>Фантазија</li>
-                    <li>499 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-
-
-
-
-
-
-            <a class="bookCard" href="html/_knjiga2.html" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 2"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 2
-                </div>
-                <ul class="bookCardDescription">
-                    <li>Аутор 2асдјасдјаксјдкаслјлдкасјлкдјаслјдласјдлкасјлдајслдјасдјаслкјдлкасјдлкасјлкдјаслкдјалскјдлкајлдкјалкдјлајлдкјалкдјлајслкдјлајдлкасјлдкјаслкдјла</li>
-                    <li>Акцијааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа</li>
-                    <li>700 дин dsjkjdsjjdsjdsdsjkdfhkjsdhfkjsdhkfjdshkjfhkdsjfhkjdsj :D ahsdjkajksdhkjashdjkashjkdhasjkdhjkashdjkashjkd asd -_- asjkdhkjashdkjashd</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 2 асдјасдјаксјдкаслјлдкасјлкдјаслјдласјдлкасјлдајслдјасдјаслкјдлкасјдлкасјлкдјаслкдјалскјдлкајлдкјалкдјлајлдкјалкдјлајслкдјлајдлкасјлдкјаслкдјла</li>
-                    <li>Акцијааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа</li>
-                    <li>700 дин dsjkjdsjjdsjdsdsjkdfhkjsdhfkjsdhkfjdshkjfhkdsjfhkjdsj :D ahsdjkajksdhkjashdjkashjkdhasjkdhjkashdjkashjkd asd -_- asjkdhkjashdkjashd</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 1
-                </div>
-
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-            <a class="bookCard" href="html/_knjiga1.html" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
-<!--                 <img class="bookCardImage" src="" alt="Књига 1"> -->
-<!--                 <img class="bookCardImage" src=""> -->
-<!--                 <div class="bookCardImage" style="background-color: rgba(0, 0, 0, 0.5); width: 100%;"></div> -->
-                <div class="bookCardDim"></div>
-                <div class="bookCardTitle">
-                    Књига 12345678901234567890
-                </div>
-                <ul class="bookCardDescription">
-                    <li>Аутор 1</li>
-                    <li>Акција</li>
-                    <li>700 дин</li>
-                </ul>
-            </a>
-
-
-
-
-
-            
+            </a>-->
         </div>
 
         <div class="footer">
             <a href="https://github.com/Ieontina">Ieontina</a>
             <a href="https://github.com/Syihlent">Syihlent</a>
         </div>
+
+        <script src="js/books.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

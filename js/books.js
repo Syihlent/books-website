@@ -32,7 +32,6 @@ async function loadData(){
 async function addBooksToIndex(){
     let data = await loadData();
 
-    console.log(data.knjige);
     if(data == null){
         return;
     }
@@ -45,7 +44,6 @@ async function addBooksToIndex(){
         let price = data.knjige[i].cena;
         let image = data.knjige[i].slike[0];
 
-        console.log(data.autori[authorId].ime);
         let authorString = data.autori[authorId].ime + " " + data.autori[authorId].prezime;
 
         innerHtml = `

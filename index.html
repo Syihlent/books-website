@@ -18,7 +18,18 @@
             <a class="navItem" href="html/autori/autori.html">Аутори</a>
             <a class="navItem" href="html/bookAdmin.html">Админ - Књиге</a>
             <a class="navItem" href="html/autori/autorAdmin.html">Админ - Аутори</a>
-            <button class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
+            <button id="loginButton" class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
+
+            <dialog id="loginDialog">
+                <h3>Login</h3>
+                <form onsubmit="loginUser(event)" class="loginForm">
+                    <input name="username" id="username" type="text" value="" placeholder="Username">
+                    <input name="password" id="password" type="password" value="" placeholder="Password">
+                    <input id="login" type="submit" value="Login">
+                    <input id="register" type="button" value="Registracija" onclick="showRegisterDialog()">
+                </form>
+                <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
+            </dialog>
         </nav>
         <div class="titleBar">
             <h1 class="indigoStyle fitContent">Почетна</h1>

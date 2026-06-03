@@ -21,12 +21,12 @@
             <button id="loginButton" class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
 
             <dialog id="loginDialog">
-                <h3>Login</h3>
+                <h3>Пријава</h3>
                 <form onsubmit="loginUser(event)" class="loginForm">
-                    <input name="username" id="username" type="text" value="" placeholder="Username">
-                    <input name="password" id="password" type="password" value="" placeholder="Password">
-                    <input id="login" type="submit" value="Login">
-                    <input id="register" type="button" value="Registracija" onclick="showRegisterDialog()">
+                    <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
+                    <input name="password" id="password" type="password" value="" placeholder="Лозинка">
+                    <input id="login" type="submit" value="Пријава">
+                    <input id="register" type="button" value="Регистрација" onclick="showRegisterDialog()">
                 </form>
                 <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
             </dialog>

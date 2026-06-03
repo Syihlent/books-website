@@ -58,7 +58,6 @@ async function addBooks(){
         let format = bookData.format;
         let noPages = bookData.brojStrana;
 
-        console.log(data.autori[authorId].ime);
         let authorString = data.autori[authorId].ime + " " + data.autori[authorId].prezime;
 
         innerHtml = `
@@ -145,7 +144,7 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
     console.log("-----------------");
     let passed = true;
     for(let [key, value] of formData.entries()){
-        console.log(key + " - " + value);
+        // console.log(key + " - " + value);
         if(key === "price"){
             let reg = /^[1-9]\d*$/;
             if(reg.test(value) == false){
@@ -180,13 +179,19 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
     }
 
     submitter = event.submitter.value;
-    submitData = formData.entries();
+    submitData = formData;
 
     if(passed && event.submitter.value !== "delete"){
 
         //popup
-        confirmDialog.showModal();
+        // confirmDialog.showModal();
         // add logic for add/edit
+        if(event.submitter.value == "add"){
+            addNewBook(formData);
+        }
+        else if(event.submitter.value == "update"){
+            updateBook(formData);
+        }
 
         // event.target.reset();
         // location.reload();
@@ -216,25 +221,23 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
 
 function addNewBook(bookData){
     // add new book
+    console.log("Add: " + bookData.get("title"));
 }
 
 function deleteBook(bookId){
+    // bookId - isbn
     // delete book, pass bookId or maybeee isbn
+    console.log("Delete: " + bookId);
 }
 
-function editBook(bookData){
+function updateBook(bookData){
     // edit book based on data provided
+    console.log("Update: " + bookData.get("title"));
 }
 
 document.getElementById("confirm").addEventListener("click", (event) => {
-    if(submitter === "add"){
-        addNewBook(submitData);
-    }
-    else if(submitter === "delete"){
-        deleteBook(submitData)
-    }
-    else if(submitter === "edit"){
-        editBook(submitData);
+    if(submitter === "delete"){
+        deleteBook(submitData.get("isbn"));
     }
 
     document.getElementById("confirmDialog").close();

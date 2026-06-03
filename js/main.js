@@ -25,9 +25,9 @@ function addNav(){
             <dialog id="loginDialog">
                 <h3>Login</h3>
                 <form onsubmit="loginUser(event)" class="loginForm">
-                    <input name="username" id="username" type="text" value="" placeholder="Username">
-                    <input name="password" id="password" type="password" value="" placeholder="Password">
-                    <input id="login" type="submit" value="Login">
+                    <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
+                    <input name="password" id="password" type="password" value="" placeholder="Лозинка">
+                    <input id="login" type="submit" value="Пријава">
                     <input id="register" type="button" value="Registracija" onclick="showRegisterDialog()">
                 </form>
                 <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
@@ -143,12 +143,12 @@ function closeLoginDialog(){
     `;
 
     innerHtmlLogin = `
-            <h3>Login</h3>
+            <h3>Пријава</h3>
             <form onsubmit="loginUser(event)" class="loginForm">
-                <input name="username" id="username" type="text" value="" placeholder="Username">
-                <input name="password" id="password" type="password" value="" placeholder="Password">
-                <input id="login" type="submit" value="Login">
-                <input id="register" type="button" value="Registracija" onclick="showRegisterDialog()">
+                <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
+                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
+                <input id="login" type="submit" value="Пријава">
+                <input id="register" type="button" value="Регистрација" onclick="showRegisterDialog()">
             </form>
             <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
     `;
@@ -168,12 +168,12 @@ function showRegisterDialog(){
     `;
 
     innerHtmlRegister = `
-            <h3>Register</h3>
+            <h3>Регистрација</h3>
             <form onsubmit="loginUser(event)" class="loginForm">
-                <input name="username" id="username" type="text" value="" placeholder="Username">
-                <input name="password" id="password" type="password" value="" placeholder="Password">
-        <input id="confirmPassword" type="password" value="" placeholder="Confirm password">
-        <input id="registerNewAccount" type="submit" value="Potvrdi">
+                <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
+                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
+        <input id="confirmPassword" type="password" value="" placeholder="Потврдите лозинку">
+        <input id="registerNewAccount" type="submit" value="Потврди">
             </form>
             <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
     `;
@@ -193,7 +193,7 @@ function loginSetup(){
     else{
         loginButton.classList.remove("logoutDiv");
         loginButton.classList.add("loginDiv");
-        loginButton.textContent = "Login";
+        loginButton.textContent = "Пријава";
     }
 }
 

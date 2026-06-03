@@ -23,6 +23,11 @@ async function loadData() {
 async function addAuthorsProfileToAuthors() {
     let data = await loadData();
     console.log(data.autori);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const authorId = urlParams.get('id');
+
+
     if (data == null){
         return;
     }
@@ -30,18 +35,21 @@ async function addAuthorsProfileToAuthors() {
     let AuthorsContinerProfile = document.getElementById('profileAu');
     let AuthorsContainerProfileBio = document.getElementById('author-bio');
     let AuthorsContainerProfileBooks = document.getElementById('author-books');
+    let AuthorsContainerProfileBooksImages = document.getElementById('autor-slike');
 
-    let autor = data.autori["aut001"];
-    let ocenaa = data.ocene["oce001"];
+    let autor = data.autori[authorId];
+    let ratingId = authorId.replace('aut', 'oce'); 
+    let ocenaa = data.ocene[ratingId];
     let books = [];
     
     for (let i in data.knjige) {
         let knjiga = data.knjige[i];
-        if (knjiga.idAutora == 'aut001') {
+        if (knjiga.idAutora == authorId) {
             books.push(knjiga);
         }
     }
-    console.log(books);
+
+    
     
 
     if (autor){
@@ -84,6 +92,12 @@ async function addAuthorsProfileToAuthors() {
             <br><br>
             <p><strong>Контакт менаџера:</strong> ${tel}</p>
         `
+
+        let authosCardBioImagesHTML = `
+            <img src="../../images/icon.png" alt="Слика аутора">
+        `
+
+        
 
         for (let i = 0; i < books.length; i++){
             nazivKnjige = books[i].naziv;

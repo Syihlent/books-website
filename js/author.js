@@ -56,7 +56,7 @@ async function addAuthorsToAuthors() {
 
 
         let authorscardHtml = `
-            <a href="../autori/autor1.html" class="item-link">
+            <a href="../autori/autor1.html?id=${i}" class="item-link">
                 <div class="item">
                     <div class="avatar">
                         <img src="${slike}" alt="prvi autor">
@@ -76,7 +76,6 @@ async function addAuthorsToAuthors() {
 
             AuthorsContainer.insertAdjacentHTML('beforeend', authorscardHtml);
     }
-
 
 }
 

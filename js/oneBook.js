@@ -83,7 +83,7 @@ async function loadBook(){
     document.getElementById("oneBookCommentsContainer").insertAdjacentHTML("afterbegin", bookCardHtml);
 
     let authorLinkElement = document.getElementById("authorLink");
-    authorLinkElement.href = `../html/autori/autor1.html?id=${authorId}`;
+    authorLinkElement.href = `../html/autor1.html?id=${authorId}`;
     let authorLinkElementP = document.getElementById("authorLinkP");
     authorLinkElementP.textContent = author;
 

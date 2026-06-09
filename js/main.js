@@ -17,9 +17,9 @@ function addNav(){
                 <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">
             </a>
             <a class="navItem" href="../index.html">Почетна</a>
-            <a class="navItem" href="../html/autori/autori.html">Аутори</a>
+            <a class="navItem" href="../html/autori.html">Аутори</a>
             <a class="navItem" href="../html/bookAdmin.html">Админ - Књиге</a>
-            <a class="navItem" href="../html/autori/autorAdmin.html">Админ - Аутори</a>
+            <a class="navItem" href="../html/autorAdmin.html">Админ - Аутори</a>
             <button id="loginButton" class="navItem logoutDiv" href="../html/profilePage.html">Одјава</button>
 
             <dialog id="loginDialog">

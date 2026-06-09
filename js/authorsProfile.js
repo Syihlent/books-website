@@ -23,6 +23,11 @@ async function loadData() {
 async function addAuthorsProfileToAuthors() {
     let data = await loadData();
     console.log(data.autori);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const authorId = urlParams.get('id');
+
+
     if (data == null){
         return;
     }
@@ -30,24 +35,26 @@ async function addAuthorsProfileToAuthors() {
     let AuthorsContinerProfile = document.getElementById('profileAu');
     let AuthorsContainerProfileBio = document.getElementById('author-bio');
     let AuthorsContainerProfileBooks = document.getElementById('author-books');
+    let AuthorsContainerProfileBooksImages = document.getElementById('autor-slike');
 
-    let autor = data.autori["aut001"];
-    let ocenaa = data.ocene["oce001"];
+    let autor = data.autori[authorId];
+    let ratingId = authorId.replace('aut', 'oce'); 
+    let ocenaa = data.ocene[ratingId];
     let books = [];
     
     for (let i in data.knjige) {
         let knjiga = data.knjige[i];
-        if (knjiga.idAutora == 'aut001') {
+        if (knjiga.idAutora == authorId) {
             books.push(knjiga);
         }
     }
-    console.log(books);
-    
+
 
     if (autor){
         ime = autor.ime;
         prezime = autor.prezime;
-        slike = autor.slike[0];
+        slike = autor.slike;
+        slikeProf = autor.slike[0];
         datumRodj = autor.datumRodjenja;
         autorStatus = autor.status;
         brPrim = autor.brojProdatihPrimeraka;
@@ -62,10 +69,10 @@ async function addAuthorsProfileToAuthors() {
         <div class="profile-info">
             <h1>${ime}</h1>
             <h1>${prezime}</h1>
-            <h1>оцена: ${ocena}</h1>
+            <h1>оцена: <span class="boja-ocene">${ocena}</span></h1>
         </div>
         <div class="profile-image">
-            <img src="${slike}" alt="Author">
+            <img src="${slikeProf}" alt="Author">
         </div>`
 
 
@@ -85,6 +92,17 @@ async function addAuthorsProfileToAuthors() {
             <p><strong>Контакт менаџера:</strong> ${tel}</p>
         `
 
+        for (let j = 0; j < slike.length; j++) {
+            let pojedinacnaSlika = slike[j];
+    
+            let authosCardBioImagesHTML = `
+                <img src="${pojedinacnaSlika}" alt="Слика аутора">
+            `;
+    
+        AuthorsContainerProfileBooksImages.insertAdjacentHTML('beforeend', authosCardBioImagesHTML);
+        }
+
+        
         for (let i = 0; i < books.length; i++){
             nazivKnjige = books[i].naziv;
             slikaKnjige = books[i].slike[0];
@@ -98,9 +116,11 @@ async function addAuthorsProfileToAuthors() {
 
             AuthorsContainerProfileBooks.insertAdjacentHTML('beforeend', authorsCardBooksHTML)
         }
-        
+
+
         AuthorsContinerProfile.insertAdjacentHTML('beforeend', authorsCardProfileHTML);
         AuthorsContainerProfileBio.insertAdjacentHTML('beforeend', authorsCardBioHTML);
+
         
     }
 }

@@ -49,13 +49,12 @@ async function addAuthorsProfileToAuthors() {
         }
     }
 
-    
-    
 
     if (autor){
         ime = autor.ime;
         prezime = autor.prezime;
-        slike = autor.slike[0];
+        slike = autor.slike;
+        slikeProf = autor.slike[0];
         datumRodj = autor.datumRodjenja;
         autorStatus = autor.status;
         brPrim = autor.brojProdatihPrimeraka;
@@ -70,10 +69,10 @@ async function addAuthorsProfileToAuthors() {
         <div class="profile-info">
             <h1>${ime}</h1>
             <h1>${prezime}</h1>
-            <h1>оцена: ${ocena}</h1>
+            <h1>оцена: <span class="boja-ocene">${ocena}</span></h1>
         </div>
         <div class="profile-image">
-            <img src="${slike}" alt="Author">
+            <img src="${slikeProf}" alt="Author">
         </div>`
 
 
@@ -93,12 +92,17 @@ async function addAuthorsProfileToAuthors() {
             <p><strong>Контакт менаџера:</strong> ${tel}</p>
         `
 
-        let authosCardBioImagesHTML = `
-            <img src="../../images/icon.png" alt="Слика аутора">
-        `
+        for (let j = 0; j < slike.length; j++) {
+            let pojedinacnaSlika = slike[j];
+    
+            let authosCardBioImagesHTML = `
+                <img src="${pojedinacnaSlika}" alt="Слика аутора">
+            `;
+    
+        AuthorsContainerProfileBooksImages.insertAdjacentHTML('beforeend', authosCardBioImagesHTML);
+        }
 
         
-
         for (let i = 0; i < books.length; i++){
             nazivKnjige = books[i].naziv;
             slikaKnjige = books[i].slike[0];
@@ -112,9 +116,11 @@ async function addAuthorsProfileToAuthors() {
 
             AuthorsContainerProfileBooks.insertAdjacentHTML('beforeend', authorsCardBooksHTML)
         }
-        
+
+
         AuthorsContinerProfile.insertAdjacentHTML('beforeend', authorsCardProfileHTML);
         AuthorsContainerProfileBio.insertAdjacentHTML('beforeend', authorsCardBioHTML);
+
         
     }
 }

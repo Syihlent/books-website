@@ -164,3 +164,19 @@ dialog .btns{
 dialog .btns button{
     flex: 1;
 }
+
+@media (max-width:767px) {
+    .crud{
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+        vertical-align: middle;
+        margin: 20px;
+        gap: 15px;
+        color: white;
+        text-shadow: 1px 2px black;
+    }
+    #broj-nag, #broj-prim{
+        width: 30px;
+    }
+}

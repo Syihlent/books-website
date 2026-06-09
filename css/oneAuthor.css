@@ -63,6 +63,10 @@ body {
     margin-top: 55px;
 }
 
+.boja-ocene{
+    color: rgb(216, 216, 37);
+}
+
 .profile-image img{
     border: 10px ridge black;
     width: 65%;
@@ -159,6 +163,8 @@ body {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+    overflow-x: auto;
+    scrollbar-width: none;
     gap: 50px;
    
 }
@@ -235,7 +241,8 @@ body {
     .authors-books{
         display: flex;
         justify-content: center;
-        
+        overflow-x: auto;
+        scrollbar-width: none;
         gap: 30px;
         
     }

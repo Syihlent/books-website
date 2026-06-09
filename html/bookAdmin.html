@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="../css/adminBooks.css">
     </head>
     <body>
+        <button class="hamburgerButton" onclick="bringMenu()">
+            X
+        </button>
         <nav class="nav">
             <a class="profilePageDiv" href="../html/profilePage.html">
                 <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">
@@ -20,7 +23,7 @@
         </nav>
         <h1 class="title indigoStyle">Админ - књиге</h1>
         <div class="tableContainer">
-            <table class="table1">
+            <table class="table1" id="bookTable">
                 <tr style="position: relative;">
                     <!-- <th style="background-color: var(--colorIsbn_f)">ИСБН</th>
                     <th style="background-color: var(--colorTitle_f)">Наслов</th>
@@ -33,562 +36,53 @@
                     <th>ИСБН</th>
                     <th>Наслов</th>
                     <th>Жанр</th>
-                    <th>Формат (mm)</th>
+                    <th>Формат</th>
                     <th>Цена (дин)</th>
                     <th>Број страна</th>
                     <th>Аутор</th>
                     <!-- <th>Слика</th> -->
                     <!--<th>екстра</th>-->
                 </tr>
-                <!--<tr>
-                    <td><p class="tdIsnb">1111111111111</p></td>
-                    <td><p class="tdTitle">Књига 1</p></td>
-                    <td><p class="tdGenre">Акција</p></td>
-                    <td><p class="tdSize">108x175</p></td>
-                    <td><p class="tdPrice">700</p></td>
-                    <td><p class="tdPages">78</p></td>
-                    <td><p class="tdAuthor">Аутор 1</p></td>
-                </tr>-->
-                <!--<tr>
-                    <td><p class="tdIsnb">1111111111112</p></td>
-                    <td><p class="tdTitle">Књига 2</p></td>
-                    <td><p class="tdGenre">Fantazija</p></td>
-                    <td><p class="tdSize">108x175</p></td>
-                    <td><p class="tdPrice">499</p></td>
-                    <td><p class="tdPages">56</p></td>
-                    <td><p class="tdAuthor">Аутор 2</p></td>
-                </tr>-->
-
-
-
-                <!--<tr>
-                    <td class="tdIsnb"><p>1111111111112</p></td>
-                    <td class="tdTitle"><p>Књига 2</p></td>
-                    <td class="tdGenre"><p>екстра1</p></td>
-                    <td class="tdSize"><p>108x175</p></td>
-                    <td class="tdPrice"><p>499</p></td>
-                    <td class="tdPages"><p>56</p></td>
-                    <td class="tdAuthor"><p>Аутор 2</p></td>
-                </tr>-->
-                <!-- <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111111</td>
-                    <td class="tdTitle">Књига 1</td>
-                    <td class="tdGenre">Акција</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">700</td>
-                    <td class="tdPages">78</td>
-                    <td class="tdAuthor">Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">Fantazija</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td class="tdIsnb">1111111111112</td>
-                    <td class="tdTitle">Књига 2</td>
-                    <td class="tdGenre">екстра1</td>
-                    <td class="tdSize">108x175</td>
-                    <td class="tdPrice">499</td>
-                    <td class="tdPages">56</td>
-                    <td class="tdAuthor">Аутор 2</td>
-                </tr> -->
-
-
-
-
-
-
-
-
-
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111112</td>
-                    <td>Књига 2</td>
-                    <td>Фантазија</td>
-                    <td>108x175</td>
-                    <td>499</td>
-                    <td>56</td>
-                    <td>Аутор 2</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                </tr>
-                <tr onclick="location.href='#bookAdminForm'">
-                    <td>1111111111111</td>
-                    <td>Књига 1</td>
-                    <td>Акција</td>
-                    <td>108x175</td>
-                    <td>700</td>
-                    <td>78</td>
-                    <td>Аутор 1</td>
-                    <!-- <td class="padding0"><div class="tooltipDiv">Слика<span class="tooltip"><img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg"></span></div></td> -->
-                </tr>
-
-
-
-
-
-                <!--<tr>
-                    <td>1</td>
-                    <td>Књига 1</td>
-                    <td>екстра1</td>
-                    <td>108x175</td>
-                    <td>499</td>
-                    <td>56</td>
-                    <td>Аутор 2</td>
-                </tr>-->
-                <!--<tr>
-                    <td>1</td>
-                    <td>Књига 1</td>
-                    <td>екстра1</td>
-                    <td>108x175</td>
-                    <td>499</td>
-                    <td>56</td>
-                    <td>Аутор 2</td>
-                </tr>-->
-
-
-
-    <!--             borders -->
-                <!--<tr>
-                    <td><p class="tdIsnb">1111111111112</p></td>
-                    <td><p class="tdTitle">Књига 2</p></td>
-                    <td><p class="tdGenre">екстра1</p></td>
-                    <td><p class="tdSize">108x175</p></td>
-                    <td><p class="tdPrice">499</p></td>
-                    <td><p class="tdPages">56</p></td>
-                    <td><p class="tdAuthor">Аутор 2</p></td>
-                </tr>-->
             </table>
         </div>
 
         <form id="bookAdminForm" method="post">
-            <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" class="imgFull">
+            <!--<img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" class="imgFull">-->
             <ul>
-                <li><input placeholder="Наслов" required class="lightGreenStyle"></li>
-                <li><select required class="lightBlueStyle">
+                <li><input name="title" placeholder="Наслов" required class="lightGreenStyle"></li>
+                <li><select name="author" required class="lightBlueStyle">
                     <option value="">-- Изаберите --</option>
-                    <option value="Autor1">Аутор 1</option>
-                    <option value="Autor2">Аутор 2</option>
+                    <!--<option value="Autor1">Аутор 1</option>
+                    <option value="Autor2">Аутор 2</option>-->
                 </select></li>
-                <li><input placeholder="Жанр" required class="lightGreenStyle"></li>
-                <li><input placeholder="Формат (у mm)" required class="lightBlueStyle"><span class="tooltip">Формат (у mm, уносите само димензије, без 'mm', нпр. '108x175')</span></li>
-                <li><input placeholder="Цена (у дин)" required class="lightGreenStyle"><span class="tooltip">Цена (у дин, уносите само број без 'дин', нпр. '700')</span></li>
-                <li><input placeholder="Број страна" required class="lightBlueStyle"></li>
-                <li><input placeholder="ИСБН (13 цифара)" required class="lightGreenStyle"><span class="tooltip">ИСБН (мора имати тачно 13 цифара и мора почињати са '978' или '979', можете стављати '-', али не морате)</span></li>
+                <li><input name="genre" placeholder="Жанр" required class="lightGreenStyle"></li>
+                <li><input name="format" placeholder="Формат" required class="lightBlueStyle"><span class="tooltip">Формат (у mm, уносите само димензије, без 'mm', нпр. '108x175')</span></li>
+                <li><input name="price" placeholder="Цена (у дин)" required class="lightGreenStyle"><span class="tooltip">Цена (у дин, уносите само број без 'дин', нпр. '700')</span></li>
+                <li><input name="noPages" placeholder="Број страна" required class="lightBlueStyle"></li>
+                <li><input name="isbn" placeholder="ИСБН (13 цифара)" required class="lightGreenStyle"><span class="tooltip">ИСБН (мора имати тачно 13 цифара и мора почињати са '978' или '979', можете стављати '-', али не морате)</span></li>
             </ul>
             <ul>
-                <li><textarea placeholder="Опис књиге" required class="lightBlueStyle"></textarea></li>
-                <li><textarea placeholder="URL-ови слика (сваки URL нова линија, такође, први URL ће бити узет као главна слика за приказ на почетној страници)" required class="lightGreenStyle"></textarea></li>
+                <li><textarea name="description" placeholder="Опис књиге" required class="lightBlueStyle"></textarea></li>
+                <li><textarea name="images" placeholder="URL-ови слика (сваки URL нова линија, такође, први URL ће бити узет као главна слика за приказ на почетној страници)" required class="lightGreenStyle"></textarea></li>
             </ul>
             <div style="width: 100%; text-align: center;">
                 <button type="submit" value="add" class="lightBlueStyle mouseHover" style="width: 30%;">Додајте</button>
                 <button type="submit" value="delete" formnovalidate class="lightRedStyle mouseHover" style="width: 30%;">Избришите</button>
                 <button type="submit" value="update" class="lightGreenStyle mouseHover" style="width: 30%;">Ажурирајте</button>
             </div>
+            <dialog id="confirmDialog">
+                <h3>Да ли сте сигурни да желите да обришете ову књигу?</h3>
+                <input type="button" id="confirm" value="Потврди">
+                <input type="button" autofocus id="cancel" value="Одбиј">
+            </dialog>
         </form>
         
         <div class="footer">
             <a href="https://github.com/Ieontina">Ieontina</a>
             <a href="https://github.com/Syihlent">Syihlent</a>
         </div>
+
+        <script src="../js/bookAdmin.js"></script>
+        <script src="../js/main.js"></script>
     </body>
 </html>

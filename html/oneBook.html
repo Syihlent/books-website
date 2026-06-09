@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Каталог</title>
+        <link rel="stylesheet" href="../css/books.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/oneBook.css">
+    </head>
+    <body>
+        <button class="hamburgerButton" onclick="bringMenu()">
+            X
+        </button>
+        <nav class="nav">
+            <a class="profilePageDiv" href="../html/profilePage.html">
+                <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">
+            </a>
+            <a class="navItem" href="../index.html">Почетна</a>
+            <a class="navItem" href="../html/autori/autori.html">Аутори</a>
+            <a class="navItem" href="../html/bookAdmin.html">Админ - Књиге</a>
+            <a class="navItem" href="../html/autori/autorAdmin.html">Админ - Аутори</a>
+            <button class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
+        </nav>
+        <h1 class="title indigoStyle" id="title">Књига 1</h1>
+        <a href="../html/autori/autor1.html" class="authorLink lightBlueStyle fitContent" id="authorLink">
+            <p id="authorLinkP">Аутор 1</p>
+            <img src="../assets/linkIcon1_black.svg" alt="<- линк">
+        </a>
+
+        <div class="oneBookCommentsContainer" id="oneBookCommentsContainer">
+            <!--<div id="bookCard" class="bookCard width550" style="background-image: url('https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg');">
+                
+                <div class="bookCardDim"></div>
+                <div class="bookCardTitle" id="title">
+                    Књига 1
+                </div>
+                <ul class="bookCardDescription">
+                    <li id="author">Аутор 1</li>
+                    <li id="genre">Акција</li>
+                    <li id="price">700 дин</li>
+                </ul>
+            </div>-->
+
+            <div class="commentContainer" id="commentContainer">
+                <!--<div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Алекса Петровић</div>
+                        <div class="lightRedStyle">28.4.2026.</div>
+                    </div>
+                    <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                     текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+                    ***</p>
+                </div>
+                <div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Марко Петровић</div>
+                        <div class="lightRedStyle">29.4.2026.</div>
+                    </div>
+                    <p class="marginTopCommentP">*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
+                </div>
+                <div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Никола Петровић</div>
+                        <div class="lightRedStyle">30.4.2026.</div>
+                    </div>
+                    <p>Веома занимљива књига, лепо за читање док се путује :D</p>
+                </div>
+                <div class="comment">
+                    <div class="commentTop">
+                        <div class="lightBlueStyle">Филип Петровић</div>
+                        <div class="lightRedStyle">1.5.2026.</div>
+                    </div>
+                    <p>*** коментар, треба на ћирилици текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст ***</p>
+                </div>-->
+            </div>
+        </div>
+
+        <div class="bookImagesContainer borderRadius15" id="bookImagesContainer">
+            <!--<img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">
+            <img class="bookImage" src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Књига 1">-->
+        </div>
+        
+        <div class="bookInfoContainer">
+            <div class="borderRadius15 list1" id="bookDescription">Опис књиге 1, текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</div>
+            <ul class="borderRadius15 list1">
+    <!--             <li>Жанр: Акција</li> -->
+                <li id="format">Формат: 108 x 175 mm</li>
+    <!--             <li>Цена: 700 дин</li> -->
+                <li id="noPages">Број страна: 78</li>
+    <!--             <li>ID Аутора: 1</li> -->
+                <li id="isbn">ИСБН: 1111111111111</li>
+            </ul>
+        </div>
+
+        <h3 class="title lightRedStyle fitContent" style="margin-top: 25px;">Напишите рецензију</h3>
+        <form class="bookReviewForm borderRadius15" method="post" id="reviewForm">
+<!--             <input type="text" placeholder="Наслов рецензије"  class="input1 blackBorderBottom fontLarge textCenter fontBold"> -->
+            <input name="name" type="text" placeholder="Ваше име и презиме" required class="input1 blackBorderBottom fontLarge textCenter fontBold">
+            <textarea name="review" placeholder="Ваша рецензија..." required class="inputTextArea blackBorderBottom fontLarge"></textarea>
+            <input type="submit" value="Поставите" class="input1 blackBorderBottom width200 fontLarge hoverMouse submit1">
+<!--             <button type="submit" class="input1 blackBorderBottom width200 fontLarge hoverMouse submit1">Поставите</button> -->
+        </form>
+
+        <div class="footer">
+            <a href="https://github.com/Ieontina">Ieontina</a>
+            <a href="https://github.com/Syihlent">Syihlent</a>
+        </div>
+
+        <script src="../js/oneBook.js"></script>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

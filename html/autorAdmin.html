@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/adminAuthor.css">
+    <link rel="stylesheet" href="../css/adminAuthor.css">
     <title>Document</title>
 </head>
 <body>
 
     <nav class="nav">
-        <a class="profilePageDiv" href="../profilePage.html"><img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил"></a>
-            <a class="navItem" href="../../index.html">Почетна</a>
-            <a class="navItem" href="../autori/autori.html">Аутори</a>
-            <a class="navItem" href="../bookAdmin.html">Админ - Књиге</a>
+        <a class="profilePageDiv" href="../html/profilePage.html"><img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил"></a>
+            <a class="navItem" href="../index.html">Почетна</a>
+            <a class="navItem" href="../html/autori.html">Аутори</a>
+            <a class="navItem" href="../html/bookAdmin.html">Админ - Књиге</a>
             <a class="navItem" href="../autori/autorAdmin.html">Админ - Аутори</a>
             <button class="navItem logoutDiv" href="html/profilePage.html">Одјава</button>
     </nav>
@@ -39,23 +39,23 @@
     <form id="authorForm" class="crud">
         <div>
             <label for="ime">Име</label>
-            <input type="text" id="ime" placeholder="Име">
+            <input type="text" id="ime" placeholder="Име" name="ime">
         </div>
         <div>
             <label for="prezime">Презиме</label>
-            <input type="text" id="prezime" placeholder="Презиме" required>
+            <input name="prezime" type="text" id="prezime" placeholder="Презиме" required>
         </div>
         <div>
             <label for="dat_rodj">Датум рођења</label>
-            <input type="date" id="dat_rodj" required>
+            <input name="datrodj" type="date" id="dat_rodj" required>
         </div>
         <div>
             <label for="broj-nag">Број освојених награда</label>
-            <input type="number" id="broj-nag" placeholder="Број освојених награда" min="0" required>
+            <input name="brojnag" type="number" id="broj-nag" placeholder="Број освојених награда" min="0" required>
         </div>
         <div>
             <label for="broj-prim">Број продатих примерака</label>
-            <input type="number" id="broj-prim" placeholder="Број продатих примерака" min="0" required>
+            <input name="brojprim" type="number" id="broj-prim" placeholder="Број продатих примерака" min="0" required>
         </div>
 
         <div>
@@ -68,7 +68,7 @@
         </div>
         <div>
             <label for="tel">Број телефона</label>
-            <input type="tel" id="tel" value="+381 "
+            <input name="brojtel" type="tel" id="tel" value="+381 "
             pattern="^\+381\s?[67]\d{7,8}$" 
             title="Унесите број у формату: +381 6XXXXXXXX"
             required>
@@ -96,8 +96,9 @@
             <a href="https://github.com/Syihlent">Syihlent</a>
     </div>
 
-    <script src="../../js/adminAuthor.js"></script>
-    <script src="../../js/deleteBtnAuthor.js"></script>
+    <script src="../js/adminAuthor.js"></script>
+    <script src="../js/deleteBtnAuthor.js"></script>
+    <script src="../js/main.js"></script>
     
 </body>
 </html>

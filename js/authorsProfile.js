@@ -41,6 +41,7 @@ async function addAuthorsProfileToAuthors() {
     let ratingId = authorId.replace('aut', 'oce'); 
     let ocenaa = data.ocene[ratingId];
     let books = [];
+    let book = data.knjige;
     
     for (let i in data.knjige) {
         let knjiga = data.knjige[i];
@@ -103,18 +104,21 @@ async function addAuthorsProfileToAuthors() {
         }
 
         
-        for (let i = 0; i < books.length; i++){
-            nazivKnjige = books[i].naziv;
-            slikaKnjige = books[i].slike[0];
+        for (let i in book){
+            if(book[i].idAutora == authorId){
+                nazivKnjige = book[i].naziv;
+                slikaKnjige = book[i].slike[0];
 
-            let authorsCardBooksHTML = `
-                <div class="book-card">
-                    <a href="../_knjiga1.html"><img src="${slikaKnjige}"></a>
-                    <p>${nazivKnjige}</p>
-                </div>
-            `
+                console.log(book[i]);
 
-            AuthorsContainerProfileBooks.insertAdjacentHTML('beforeend', authorsCardBooksHTML)
+                let authorsCardBooksHTML = `
+                    <div class="book-card">
+                        <a href="../html/oneBook.html?${i}"><img src="${slikaKnjige}"></a>
+                        <p>${nazivKnjige}</p>
+                    </div>
+                `
+
+                AuthorsContainerProfileBooks.insertAdjacentHTML('beforeend', authorsCardBooksHTML)}
         }
 
 

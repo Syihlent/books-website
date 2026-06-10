@@ -39,7 +39,7 @@
     <form id="authorForm" class="crud">
         <div>
             <label for="ime">Име</label>
-            <input type="text" id="ime" placeholder="Име" name="ime">
+            <input name="ime" type="text" id="ime" placeholder="Име" >
         </div>
         <div>
             <label for="prezime">Презиме</label>
@@ -69,13 +69,13 @@
         <div>
             <label for="tel">Број телефона</label>
             <input name="brojtel" type="tel" id="tel" value="+381 "
-            pattern="^\+381\s?[67]\d{7,8}$" 
-            title="Унесите број у формату: +381 6XXXXXXXX"
+            pattern="^\+381 6\d \d{3}-\d{3,4}$" 
+            title="Унесите број у формату: +381 XX XXX-XXXX"
             required>
         </div>
 
         <div class="buttons">
-            <button type="button" id="updateBtn">Измени</button>
+            <button type="submit" id="updateBtn">Измени</button>
             <button type="submit" id="addBtn">Додај</button>
             <button type="button" id="deleteBtn">Избриши</button>  
         </div>

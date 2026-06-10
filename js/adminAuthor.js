@@ -9,42 +9,30 @@ async function loadData() {
     }
 }
 
-let ime = document.getElementsByName("ime")[0];
-let prezime = document.getElementsByName("prezime")[0];
+let ime1 = document.getElementsByName("ime")[0];
+let prezime1 = document.getElementsByName("prezime")[0];
 let datrodjj = document.getElementsByName("datrodj")[0];
 let brojnag = document.getElementsByName("brojnag")[0];
-let brojprim = document.getElementsByName("brojprim")[0];
-let brojtel = document.getElementsByName("brojtel")[0];
+let brojprim1 = document.getElementsByName("brojprim")[0];
+let brojtel1 = document.getElementsByName("brojtel")[0];
 
-function authorsform (autorid){
+async function authorsform (autorid){
     let data = await loadData();
-    selectedautrId = autorId;
+    selectedautrId = autorid;
     autoradminForm = document.getElementById("authorForm");
 
     let autorData = data.autori[autorid];
-    
+    console.log(autorData);
+    ime1.value = autorData.ime;
+    prezime1.value = autorData.prezime;
+    datrodjj.value = autorData.datumRodjenja;
+    brojnag.value = autorData.brojOsvojenihNagrada;
+    brojprim1.value = autorData.brojProdatihPrimeraka;
+    brojtel1.value = autorData.kontaktTelefonMenadzera;
 
-    // let Form = document.getElementsByName("")[0];
-    // let Form = document.getElementsByName("")[0];
-    // let Form = document.getElementsByName("")[0];
 
-    titleForm.value =autorData.naziv;
-    authorForm.value = bookData.idAutora;
-    genreForm.value = bookData.zanr;
-    formatForm.value = bookData.format;
-    priceForm.value = bookData.cena;
-    noPagesForm.value = bookData.brojStrana;
-    isbnForm.value = bookData.isbn;
-    descriptionForm.value = bookData.opis;
-    // imagesForm.value = bookData.slike;
 
-    let imageUrls = "";
-    for(let i in bookData.slike){
-        imageUrls += bookData.slike[i] + "\n\n";
-    }
-    imagesForm.value = imageUrls;
-
-    location.href='#bookAdminForm';
+    location.href='#authorForm';
 
 }
 

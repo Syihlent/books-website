@@ -1,5 +1,6 @@
 let dataGlobal = null;
 let bookAdminForm = document.getElementById("bookAdminForm");
+let dataUrl = "https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/.json";
 
 
 let titleForm = document.getElementsByName("title")[0];
@@ -20,7 +21,7 @@ let submitData = null;
 
 async function loadData(){
     try{
-        let response = await fetch("https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/.json");
+        let response = await fetch(dataUrl);
         let data = await response.json();
 
         // console.log(data);
@@ -190,7 +191,7 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
             addNewBook(formData);
         }
         else if(event.submitter.value == "update"){
-            updateBook(formData);
+            updateBook(selectedBookId, formData);
         }
 
         // event.target.reset();
@@ -222,22 +223,86 @@ document.getElementById("bookAdminForm").addEventListener("submit", (event) => {
 function addNewBook(bookData){
     // add new book
     console.log("Add: " + bookData.get("title"));
+
+    let knjige = dataGlobal.knjige;
+    let maxId = -1;
+    for(let i in knjige){
+        let n = i.substring(3);
+        if(parseInt(n) > maxId){
+            maxId = parseInt(n);
+        }
+    }
+    maxId += 1;
+    let key = "knj" + String(maxId).padStart(3, "0");
+    let newUrl = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/knjige/${key}.json`;
+    fetch(newUrl, {
+        method: "PUT",
+        body: JSON.stringify({
+            brojStrana: bookData.get("noPages"),
+            cena: bookData.get("price"),
+            format: bookData.get("format"),
+            idAutora: bookData.get("author"),
+            isbn: bookData.get("isbn"),
+            naziv: bookData.get("title"),
+            opis: bookData.get("description"),
+            slike: (bookData.get("images").split("\n").map(url => url.trim()).filter(url => url !== "")),
+            zanr: bookData.get("genre")
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Book added sucesfully: ", data)
+    })
+    .catch(err => console.error("Firebase error: ", err));
+    // console.log(bookData.entries()["images"].split("\n"));
+    // console.log(bookData.get("images").split("\n").map(url => url.trim()).filter(url => url !== ""));
 }
 
 function deleteBook(bookId){
     // bookId - isbn
     // delete book, pass bookId or maybeee isbn
-    console.log("Delete: " + bookId);
+    // console.log("Delete: " + bookId);
+    // let key = "knj" + String(maxId).padStart(3, "0");
+
+    let newUrl = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/knjige/${bookId}.json`;
+    fetch(newUrl, {
+        method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(`deleted: ${bookId}`);
+    })
+    .catch(err => console.error(`Error while deleting: ${bookdId}`));
 }
 
-function updateBook(bookData){
+function updateBook(bookId, bookData){
     // edit book based on data provided
-    console.log("Update: " + bookData.get("title"));
+    // console.log("Update: " + bookData.get("title"));
+    let newUrl = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/knjige/${bookId}.json`;
+    fetch(newUrl, {
+        method: "PATCH",
+        body: JSON.stringify({
+            brojStrana: bookData.get("noPages"),
+            cena: bookData.get("price"),
+            format: bookData.get("format"),
+            idAutora: bookData.get("author"),
+            isbn: bookData.get("isbn"),
+            naziv: bookData.get("title"),
+            opis: bookData.get("description"),
+            slike: (bookData.get("images").split("\n").map(url => url.trim()).filter(url => url !== "")),
+            zanr: bookData.get("genre")
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(`updated: ${bookId}`);
+    })
+    .catch(err => console.error(`Error while updating: ${bookdId}`));
 }
 
 document.getElementById("confirm").addEventListener("click", (event) => {
     if(submitter === "delete"){
-        deleteBook(submitData.get("isbn"));
+        deleteBook(selectedBookId);
     }
 
     document.getElementById("confirmDialog").close();

@@ -50,6 +50,26 @@ async function loadData(){
             datum.textContent = userObj["datumRodjenja"];
             zanimanje.textContent = userObj["zanimanje"];
 
+            document.getElementById("usernameLetter").textContent = currentUser[0].toUpperCase();
+
+
+
+
+
+
+
+
+
+ //            for(let i = -; o > daat/soze(); o++){
+ //                cpmsp;e/;;pf)|Data:
+ // + i            }
+
+
+
+
+
+
+
             // console.log(data.recenzije);
             console.log(data.korisnici);
 
@@ -64,11 +84,13 @@ async function loadData(){
                     let naslovKnjige = data.knjige[idKnjige]["naziv"];
                     let komentarText = recenzija["tekst"];
 
+                    let dateFormated = String(recenzija["datum"]).replaceAll("-", ".");
+
                     let komentar = `
                         <a href="../html/oneBook.html?${idKnjige}" class="comment commentDiv" style="font-size: 14px;">
                             <div class="commentTop">
                                 <div class="lightBlueStyle">${naslovKnjige}</div>
-                                <div class="lightRedStyle">29.4.2026.</div>
+                                <div class="lightRedStyle">${dateFormated}.</div>
                             </div>
                             <!--<h2>*** наслов коментара, треба на ћирилици ***</h2> -->
                             <p class="marginTopCommentP">${komentarText}</p>
@@ -84,6 +106,9 @@ async function loadData(){
                 let ocena = data.ocene[j];
                 if(ocena["idKorisnika"] == i){
                     let idAutora = ocena["idAutora"];
+                    if(data.autori[idAutora] == null || data.autori[idAutora] == undefined){
+                        continue;
+                    }
                     let ime_prezime = data.autori[idAutora]["ime"] + " " + data.autori[idAutora]["prezime"];
                     // let zvezdice = `★` * parseInt(ocena["vrednost"]);
                     let zvezdice = "";

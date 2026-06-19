@@ -1,3 +1,5 @@
+let dataGlobal = null;
+
 async function loadData(){
     try{
         let response = await fetch("https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/.json");
@@ -14,6 +16,7 @@ async function loadData(){
 
 async function loadBook(){
     let data = await loadData();
+    dataGlobal = data;
 
     console.log(data);
     console.log(data.recenzije);
@@ -138,10 +141,59 @@ document.getElementById("reviewForm").addEventListener("submit", (event) => {
 
     let formData = new FormData(event.target);
     let passed = true;
-    for(let [key, value] of formData.entries()){
-        console.log(key + " - " + value);
+    // for(let [key, value] of formData.entries()){
+    //     console.log(key + " - " + value);
+    //
+    // }
+    console.log(formData.get("review"));
 
+    if(dataGlobal == null || dataGlobal == undefined){
+        return;
     }
+
+    let maxId = -1;
+    for(let i in dataGlobal.recenzije){
+        let recId = parseInt(i.substring(3));
+
+        if(recId > maxId){
+            maxId = recId;
+        }
+    }
+
+    maxId += 1;
+    let key = "rec" + String(maxId).padStart(3, "0");
+
+    let url = document.URL;
+    let idStringIndex = url.lastIndexOf("?") + 1;
+    let idKnjige = url.substring(idStringIndex);
+
+    let idKorisnika = -1;
+    for(let i in dataGlobal.korisnici){
+        let user = dataGlobal.korisnici[i]["korisnickoIme"];
+        let currentUser = localStorage.getItem("username");
+        console.log(currentUser + " - " + user);
+        if(user == currentUser && currentUser != null && currentUser != undefined){
+            idKorisnika = i;
+            /*break*/;
+        }
+    }
+
+    if(idKorisnika == -1){
+        document.getElementsByName("review")[0].style.border = "solid red 5px";
+        document.getElementsByName("review")[0].value = "Морате бити пријављени да бисте могли да оставите рецензију";
+        return;
+    }
+    let date1 = new Date();
+    let dateS = date1.getFullYear() + "-" + String(date1.getMonth() + 1).padStart(2, "0") + "-" + String(date1.getDate()).padStart(2, "0");
+    fetch(`https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/recenzije/${key}.json`, {
+        method: "PUT",
+        body: JSON.stringify({
+            datum: dateS,
+            idKnjige: idKnjige,
+            idKorisnika: idKorisnika,
+            tekst: formData.get("review")
+        })
+    });
 
     // add new comment logic here
 

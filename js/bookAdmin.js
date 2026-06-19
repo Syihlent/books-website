@@ -59,6 +59,10 @@ async function addBooks(){
         let format = bookData.format;
         let noPages = bookData.brojStrana;
 
+        if(data.autori[authorId] == null || data.autori[authorId] == undefined){
+            continue;
+        }
+
         let authorString = data.autori[authorId].ime + " " + data.autori[authorId].prezime;
 
         innerHtml = `

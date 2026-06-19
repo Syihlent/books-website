@@ -77,6 +77,8 @@ loginButton.addEventListener("click", (event) => {
         document.getElementById("loginDialog").showModal();
     }
     else{
+        // localstorage.setItem("username", null);
+        localStorage.removeItem("username");
         currentUser = null;
         loginSetup();
     }
@@ -181,6 +183,12 @@ function showRegisterDialog(){
 };
 
 function loginSetup(){
+    let username = localStorage.getItem("username");
+    console.log(`username: ${username}`);
+    if(username != null && username != undefined){
+        currentUser = username;
+    }
+
     loginButton.textContent = "Login";
     closeLoginDialog();
 
@@ -216,6 +224,7 @@ function loginUser(event){
         console.log(data.korisnici[i].korisnickoIme + " - " + data.korisnici[i].lozinka);
         if(data.korisnici[i].korisnickoIme == username && data.korisnici[i].lozinka == password){
             currentUser = username;
+            localStorage.setItem("username", username);
             loginSetup();
 
             // save to local storage

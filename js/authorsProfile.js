@@ -63,14 +63,19 @@ async function addAuthorsProfileToAuthors() {
         biografija = autor.biografija;
         tel = autor.kontaktTelefonMenadzera;
 
-        ocena = ocenaa.vrednost;
+        let pocetniProsek = 0;
+        if (ocenaa && ocenaa.brojGlasova > 0) {
+            pocetniProsek = (ocenaa.zbirOcena / ocenaa.brojGlasova).toFixed(1);
+        } else if (ocenaa && ocenaa.vrednost) { 
+            pocetniProsek = ocenaa.vrednost; 
+        }
 
 
         let authorsCardProfileHTML = `
         <div class="profile-info">
             <h1>${ime}</h1>
             <h1>${prezime}</h1>
-            <h1>оцена: <span class="boja-ocene">${ocena}</span></h1>
+            <h1>оцена: <span class="boja-ocene" id="prikaziOcene">${pocetniProsek}</span></h1>
         </div>
         <div class="profile-image">
             <img src="${slikeProf}" alt="Author">
@@ -127,6 +132,67 @@ async function addAuthorsProfileToAuthors() {
 
         
     }
+}
+
+
+// sad zvezde
+
+
+let zvezdeKontejner = document.getElementById("ocena");
+
+if (zvezdeKontejner) {
+    zvezdeKontejner.addEventListener("click", async function (event) {
+        if (event.target.tagName === "INPUT") {
+            let novaOcenaVrednost = Number(event.target.id.replace("star", ""));
+            console.log("Korisnik dao ocenu:", novaOcenaVrednost);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const authorId = urlParams.get('id');
+            if (!authorId) return;
+
+            let ratingId = authorId.replace('aut', 'oce');
+            let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/ocene/${ratingId}.json`;
+
+            try {
+                let responeGet = await fetch(url);
+                let trenutnaOcenaBaza = await responeGet.json();
+
+                let trenutniZbir = (trenutnaOcenaBaza && trenutnaOcenaBaza.zbirOcena) ? trenutnaOcenaBaza.zbirOcena : 0;
+                let trenutniBrojGlasova = (trenutnaOcenaBaza && trenutnaOcenaBaza.brojGlasova) ? trenutnaOcenaBaza.brojGlasova : 0;
+
+                let noviZbir = trenutniZbir + novaOcenaVrednost;
+                let noviBrojGlasova = trenutniBrojGlasova + 1;
+
+                let noviProsek = (noviZbir/noviBrojGlasova)
+
+                const azuriraniPodaci = {
+                    zbirOcena: noviZbir,
+                    brojGlasova: noviBrojGlasova
+                };
+
+                let responsePatch = await fetch(url, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(azuriraniPodaci)
+                });
+
+                if (responsePatch.ok){
+                    let prikaziocene = document.getElementById("prikazi-ocene");
+                    if (prikaziocene) {
+                        prikaziOcene.innerText = noviProsek.toFixed(1);
+                    }
+                    console.log("aa");
+                    
+                }
+                location.reload();
+            }
+            catch (err){
+                console.log(err);
+            }
+        }
+    });
 }
 
 addAuthorsProfileToAuthors();

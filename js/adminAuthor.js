@@ -16,6 +16,7 @@ let brojnag = document.getElementsByName("brojnag")[0];
 let brojprim1 = document.getElementsByName("brojprim")[0];
 let brojtel1 = document.getElementsByName("brojtel")[0];
 let status1 = document.getElementById("status");
+let slika1 = document.getElementById("slika");
 let selected = null;
 
 async function authorsform (autorid){
@@ -32,6 +33,7 @@ async function authorsform (autorid){
     brojprim1.value = autorData.brojProdatihPrimeraka;
     brojtel1.value = autorData.kontaktTelefonMenadzera;
     status1.value = autorData.status;
+    slika1.value = (autorData.slike && autorData.slike[0]) ? autorData.slike[0] : "";
     
     location.href='#authorForm';
 
@@ -90,10 +92,7 @@ deleteBtn.addEventListener("click", async function (event) {
     event.preventDefault();
     console.log("d");
     const forma = document.getElementById("authorForm");
-    if(!forma.checkValidity()){
-        forma.reportValidity();
-        return;
-    }
+    
 
     const changeAuthorData = {
         ime: ime1.value,
@@ -102,7 +101,8 @@ deleteBtn.addEventListener("click", async function (event) {
         brojOsvojenihNagrada: brojnag.value,
         brojProdatihPrimeraka: brojprim1.value,
         kontaktTelefonMenadzera: brojtel1.value,
-        status: status1.value
+        status: status1.value,
+        slike: slika1.value
     }
 
     try{
@@ -113,14 +113,11 @@ deleteBtn.addEventListener("click", async function (event) {
                 "Content-type": "application/json"
             },
             body: JSON.stringify(changeAuthorData)
-
-        })
-
-        ;
+        });
 
 
         if (response.ok){
-            console.log(" jejj");
+            console.log("jejj");
             forma.reset();
             selectedautrId = null;
 
@@ -137,8 +134,7 @@ deleteBtn.addEventListener("click", async function (event) {
                     <th>Број телефона менаџера</th>
                 </tr>`;
 
-            await addAuthorsProfileToAuthors();
-            
+            await addAuthorsProfileToAuthors();           
         }
         else{
             console.log("neeee");
@@ -147,7 +143,7 @@ deleteBtn.addEventListener("click", async function (event) {
      catch (err){
             console.log(err);
         }
-})
+});
 
 updateBTN.addEventListener("click", async function (event) {
     console.log("aaaa");
@@ -211,7 +207,7 @@ updateBTN.addEventListener("click", async function (event) {
      catch (err){
             console.log(err);
         }
-})
+});
 
 
 addBTN.addEventListener("click", async function (event) {
@@ -224,6 +220,8 @@ addBTN.addEventListener("click", async function (event) {
         return;
     }
 
+    let slikaNiz = slika1.value ? [slika1.value] : ["https://via.placeholder.com/150"];
+
     const changeAuthorData = {
         
         ime: ime1.value,
@@ -233,7 +231,8 @@ addBTN.addEventListener("click", async function (event) {
         brojProdatihPrimeraka: brojprim1.value,
         kontaktTelefonMenadzera: brojtel1.value,
         status: status1.value,
-       // slike: ["https://via.placeholder.com/150"]
+       slike: slikaNiz
+       
     }
 
     try{

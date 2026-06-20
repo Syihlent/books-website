@@ -89,6 +89,7 @@ async function addAuthorsToAuthors() {
         event.preventDefault();
         console.log("radi?");
         const val = nameSearch.value;
+        const statval = statusSearch.value;
         AuthorsContainer.innerHTML = "";
         for(let i in data.autori){
             ime = data.autori[i].ime
@@ -97,8 +98,12 @@ async function addAuthorsToAuthors() {
             kontaktTelefonMenadzera = data.autori[i].kontaktTelefonMenadzera;
             slike = data.autori[i].slike[0];
             datumRodjenja = data.autori[i].datumRodjenja;
+            status = data.autori[i].status;
+
+            let namemm = val === "" || ime.toLowerCase().includes(val);
+            let statuss = statval === "" || status.toLocaleLowerCase().includes(statval); 
             
-            if(val == "" || ime.toLowerCase().includes(val)){
+            if(namemm && statuss){
                 console.log("nasla ime")
                 let NEWauthorscardHtml = `
                     <a href="../html/autor1.html?id=${i}" class="item-link">
@@ -119,52 +124,13 @@ async function addAuthorsToAuthors() {
                     </a>
                     `
 
+                    // trebam da popravim mark
+
                 AuthorsContainer.insertAdjacentHTML('beforeend', NEWauthorscardHtml);
             }
-               
+             
         }
     });
-
-    searchBTN.addEventListener("click", async function (event) {
-        event.preventDefault();
-        console.log("radi status?");
-        const val = statusSearch.value;
-        AuthorsContainer.innerHTML = "";
-        for(let i in data.autori){
-            ime = data.autori[i].ime
-            prezime = data.autori[i].prezime;
-            biografija = data.autori[i].biografija;
-            kontaktTelefonMenadzera = data.autori[i].kontaktTelefonMenadzera;
-            slike = data.autori[i].slike[0];
-            datumRodjenja = data.autori[i].datumRodjenja;
-            status = data.autori[i].status;
-            
-            if(val == "" || status.toLowerCase().includes(val)){
-                console.log("nasla ime")
-                let NEWauthorscardHtml = `
-                    <a href="../html/autor1.html?id=${i}" class="item-link">
-                        <div class="item">
-                            <div class="avatar">
-                                <img src="${slike}" alt="prvi autor">
-                            </div>
-                            <div class="content">
-                                <h3>${ime} ${prezime}</h3>
-                                <p>${biografija}</p>
-                            </div>
-
-                            <div class="author-info">
-                                <p>${kontaktTelefonMenadzera}</p>
-                                <p>${datumRodjenja}</p>
-                            </div>
-                        </div>
-                    </a>
-                    `
-
-                AuthorsContainer.insertAdjacentHTML('beforeend', NEWauthorscardHtml);
-            }
-               
-        }
-    })
 
 }
 

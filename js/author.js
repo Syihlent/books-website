@@ -44,6 +44,7 @@ async function addAuthorsToAuthors() {
 
 
     let AuthorsContainer = document.getElementById('AuthorsContainer');
+    const searchBTN = document.getElementById("searchBTN");
 
 
     for (let i in data.autori){
@@ -74,8 +75,96 @@ async function addAuthorsToAuthors() {
             </a>
             `
 
-            AuthorsContainer.insertAdjacentHTML('beforeend', authorscardHtml);
+        AuthorsContainer.insertAdjacentHTML('beforeend', authorscardHtml);
+
+
+        // search btn
+        
     }
+
+    const nameSearch = document.getElementById("nameSearch");
+    const statusSearch = document.getElementById("statusSearch");
+
+    searchBTN.addEventListener("click", async function (event) {
+        event.preventDefault();
+        console.log("radi?");
+        const val = nameSearch.value;
+        AuthorsContainer.innerHTML = "";
+        for(let i in data.autori){
+            ime = data.autori[i].ime
+            prezime = data.autori[i].prezime;
+            biografija = data.autori[i].biografija;
+            kontaktTelefonMenadzera = data.autori[i].kontaktTelefonMenadzera;
+            slike = data.autori[i].slike[0];
+            datumRodjenja = data.autori[i].datumRodjenja;
+            
+            if(val == "" || ime.toLowerCase().includes(val)){
+                console.log("nasla ime")
+                let NEWauthorscardHtml = `
+                    <a href="../html/autor1.html?id=${i}" class="item-link">
+                        <div class="item">
+                            <div class="avatar">
+                                <img src="${slike}" alt="prvi autor">
+                            </div>
+                            <div class="content">
+                                <h3><mark>${ime}</mark> ${prezime}</h3>
+                                <p>${biografija}</p>
+                            </div>
+
+                            <div class="author-info">
+                                <p>${kontaktTelefonMenadzera}</p>
+                                <p>${datumRodjenja}</p>
+                            </div>
+                        </div>
+                    </a>
+                    `
+
+                AuthorsContainer.insertAdjacentHTML('beforeend', NEWauthorscardHtml);
+            }
+               
+        }
+    });
+
+    searchBTN.addEventListener("click", async function (event) {
+        event.preventDefault();
+        console.log("radi status?");
+        const val = statusSearch.value;
+        AuthorsContainer.innerHTML = "";
+        for(let i in data.autori){
+            ime = data.autori[i].ime
+            prezime = data.autori[i].prezime;
+            biografija = data.autori[i].biografija;
+            kontaktTelefonMenadzera = data.autori[i].kontaktTelefonMenadzera;
+            slike = data.autori[i].slike[0];
+            datumRodjenja = data.autori[i].datumRodjenja;
+            status = data.autori[i].status;
+            
+            if(val == "" || status.toLowerCase().includes(val)){
+                console.log("nasla ime")
+                let NEWauthorscardHtml = `
+                    <a href="../html/autor1.html?id=${i}" class="item-link">
+                        <div class="item">
+                            <div class="avatar">
+                                <img src="${slike}" alt="prvi autor">
+                            </div>
+                            <div class="content">
+                                <h3>${ime} ${prezime}</h3>
+                                <p>${biografija}</p>
+                            </div>
+
+                            <div class="author-info">
+                                <p>${kontaktTelefonMenadzera}</p>
+                                <p>${datumRodjenja}</p>
+                            </div>
+                        </div>
+                    </a>
+                    `
+
+                AuthorsContainer.insertAdjacentHTML('beforeend', NEWauthorscardHtml);
+            }
+               
+        }
+    })
 
 }
 

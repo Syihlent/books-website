@@ -86,14 +86,22 @@ async function addAuthorsProfileToAuthors() {
 const updateBTN = document.getElementById("updateBtn");
 const addBTN = document.getElementById("addBtn");
 const deleteBtn = document.getElementById("deleteBtn");
+// const okbtn = document.getElementById("okBTN");
+const nobtn = document.getElementById("cancelBTN");
+
+// okbtn.addEventListener("click", async function (event) {
+//         console.log("izbrisiiii")
+// });
 
 deleteBtn.addEventListener("click", async function (event) {
     console.log("dddd");
     event.preventDefault();
     console.log("d");
-    const forma = document.getElementById("authorForm");
-    
-
+    const forma = document.getElementById("authorForm");    
+    // const okbtn = document.getElementById("okBTN");
+    // okbtn.addEventListener("click", async function (event) {
+    //     console.log("izbrisiiii")
+    // });
     const changeAuthorData = {
         ime: ime1.value,
         prezime: prezime1.value,
@@ -105,44 +113,85 @@ deleteBtn.addEventListener("click", async function (event) {
         slike: slika1.value
     }
 
-    try{
-        let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/autori/${selectedautrId}.json`;
-        let response = await fetch(url, {
-            method: "DELETE",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(changeAuthorData)
-        });
+    okbtn.addEventListener("click", async function (event) {
+        console.log("izbrisiiii")
+        try{
+            let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/autori/${selectedautrId}.json`;
+            let response = await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(changeAuthorData)
+            });
+        
+            if (response.ok){
+                console.log("jejj");
+                forma.reset();
+                selectedautrId = null;
 
+                let table = document.getElementById('tableAdmin');
+                table.innerHTML = `
+                    <tr>
+                        <th></th>
+                        <th>Име</th>
+                        <th>Презиме</th>
+                        <th>Датум рођења</th>
+                        <th>Број освојених награда</th>
+                        <th>Број продатих примерака</th>
+                        <th>Статус аутора</th>
+                        <th>Број телефона менаџера</th>
+                    </tr>`;
 
-        if (response.ok){
-            console.log("jejj");
-            forma.reset();
-            selectedautrId = null;
-
-            let table = document.getElementById('tableAdmin');
-            table.innerHTML = `
-                <tr>
-                    <th></th>
-                    <th>Име</th>
-                    <th>Презиме</th>
-                    <th>Датум рођења</th>
-                    <th>Број освојених награда</th>
-                    <th>Број продатих примерака</th>
-                    <th>Статус аутора</th>
-                    <th>Број телефона менаџера</th>
-                </tr>`;
-
-            await addAuthorsProfileToAuthors();           
+                await addAuthorsProfileToAuthors();           
+                }
+            else{
+                console.log("neeee");
+            }
         }
-        else{
-            console.log("neeee");
-        }
-    }
-     catch (err){
+        catch (err){
             console.log(err);
+            console.log("greska")
         }
+    })
+
+    // try{
+    //     let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/autori/${selectedautrId}.json`;
+    //     let response = await fetch(url, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         },
+    //         body: JSON.stringify(changeAuthorData)
+    //     });
+       
+    //     if (response.ok){
+    //         console.log("jejj");
+    //         forma.reset();
+    //         selectedautrId = null;
+
+    //         let table = document.getElementById('tableAdmin');
+    //         table.innerHTML = `
+    //             <tr>
+    //                 <th></th>
+    //                 <th>Име</th>
+    //                 <th>Презиме</th>
+    //                 <th>Датум рођења</th>
+    //                 <th>Број освојених награда</th>
+    //                 <th>Број продатих примерака</th>
+    //                 <th>Статус аутора</th>
+    //                 <th>Број телефона менаџера</th>
+    //             </tr>`;
+
+    //         await addAuthorsProfileToAuthors();           
+    //     }
+    //     else{
+    //         console.log("neeee");
+    //     }
+    // }
+    //  catch (err){
+    //         console.log(err);
+    //     }
 });
 
 updateBTN.addEventListener("click", async function (event) {
@@ -166,6 +215,8 @@ updateBTN.addEventListener("click", async function (event) {
     }
 
     try{
+
+        
         let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/autori/${selectedautrId}.json`;
         let response = await fetch(url, {
             method: "PATCH",
@@ -174,9 +225,7 @@ updateBTN.addEventListener("click", async function (event) {
             },
             body: JSON.stringify(changeAuthorData)
 
-        })
-
-        ;
+        });
 
 
         if (response.ok){

@@ -1,5 +1,13 @@
 function addNav(){
     if(document.URL.includes("index.html")){
+        let prvoSlovo = "T_T";
+        let currentUser = localStorage.getItem("username");
+        if(currentUser != null && currentUser != undefined){
+            prvoSlovo = currentUser[0].toUpperCase();
+        }
+
+        document.getElementById("usernameLetterNav").textContent = prvoSlovo;
+
         return;
     }
 
@@ -8,13 +16,20 @@ function addNav(){
         nav.remove();
     }
 
+    let prvoSlovo = "T_T";
+    let currentUser = localStorage.getItem("username");
+    if(currentUser != null && currentUser != undefined){
+        prvoSlovo = currentUser[0].toUpperCase();
+    }
+
     let navElement = `
         <button class="hamburgerButton" onclick="bringMenu()">
             X
         </button>
         <nav class="nav">
             <a class="profilePageDiv" href="../html/profilePage.html">
-                <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">
+                <!--<img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg" alt="Профил">-->
+                <div id="usernameLetterNav" style="font-size: 1.67em;">${prvoSlovo}</div>
             </a>
             <a class="navItem" href="../index.html">Почетна</a>
             <a class="navItem" href="../html/autori.html">Аутори</a>
@@ -77,8 +92,12 @@ loginButton.addEventListener("click", (event) => {
         document.getElementById("loginDialog").showModal();
     }
     else{
+        // localstorage.setItem("username", null);
+        localStorage.removeItem("username");
         currentUser = null;
         loginSetup();
+
+        location.reload();
     }
 
     // document.getElementById("closeLoginDialog").addEventListener("click", (event) => {
@@ -180,7 +199,13 @@ function showRegisterDialog(){
     document.getElementById("loginDialog").innerHTML = innerHtmlRegister;
 };
 
-function loginSetup(){
+async function loginSetup(){
+    let username = await localStorage.getItem("username");
+    console.log(`username: ${username}`);
+    if(username != null && username != undefined){
+        currentUser = username;
+    }
+
     loginButton.textContent = "Login";
     closeLoginDialog();
 
@@ -216,11 +241,14 @@ function loginUser(event){
         console.log(data.korisnici[i].korisnickoIme + " - " + data.korisnici[i].lozinka);
         if(data.korisnici[i].korisnickoIme == username && data.korisnici[i].lozinka == password){
             currentUser = username;
+            localStorage.setItem("username", username);
             loginSetup();
 
             // save to local storage
         }
     }
+
+    location.reload();
 }
 
 function registerUser(event){

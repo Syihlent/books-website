@@ -15,8 +15,16 @@ async function loadData(){
 (async () => {
     data = await loadData();
 
-    let users = data.korisnici;
+    //dodala ?
+    let users = data?.korisnici;
     console.log(users);
+
+    // i ovo
+    const currentUser = localStorage.getItem("username");
+    if (!currentUser) {
+        console.log("greska");
+        return; 
+    }
 
     for(let i in users){
         if(users[i].korisnickoIme === currentUser){
@@ -42,16 +50,33 @@ async function loadData(){
             let datum = document.getElementById("datum");
             let zanimanje = document.getElementById("zanimanje");
 
-            imePrezime.textContent = userObj["ime"] + " " + userObj["prezime"][0] + ".";
-            ime.textContent = userObj["ime"];
-            prezime.textContent = userObj["prezime"];
+            //i ovo
+            const userIme = userObj["ime"] || "";
+            const userPrezime = userObj["prezime"] || "";
+
+            imePrezime.textContent = `${userIme} ${userPrezime[0] || ''}.`;
+            ime.textContent = userIme;
+            prezime.textContent = userPrezime;
             email.textContent = userObj["email"];
             adresa.textContent = userObj["adresa"];
             datum.textContent = userObj["datumRodjenja"];
             zanimanje.textContent = userObj["zanimanje"];
 
-            document.getElementById("usernameLetter").textContent = currentUser[0].toUpperCase();
 
+            //ovo je stvaralo gresku:
+            // imePrezime.textContent = userObj["ime"] + " " + userObj["prezime"][0] + ".";
+            // ime.textContent = userObj["ime"];
+            // prezime.textContent = userObj["prezime"];
+            // email.textContent = userObj["email"];
+            // adresa.textContent = userObj["adresa"];
+            // datum.textContent = userObj["datumRodjenja"];
+            // zanimanje.textContent = userObj["zanimanje"];
+
+            //stvara gresku:
+            //document.getElementById("usernameLetter").textContent = currentUser[0].toUpperCase();
+
+            //novo:
+            document.getElementById("usernameLetter").textContent = currentUser?.[0]?.toUpperCase() || "T_T";
 
 
 
@@ -75,6 +100,8 @@ async function loadData(){
 
 
             let reviewContainer = document.getElementById("reviewContainer");
+            //i ovo
+            reviewContainer.innerHTML = "";
             for(let j in data.recenzije){
                 let recenzija = data.recenzije[j];
 
@@ -102,6 +129,8 @@ async function loadData(){
             }
 
             let starsContainer = document.getElementById("starsTable");
+            //i ovo
+            starsContainer.innerHTML = "";
             for(let j in data.ocene){
                 let ocena = data.ocene[j];
                 if(ocena["idKorisnika"] == i){

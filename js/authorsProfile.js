@@ -144,11 +144,23 @@ if (zvezdeKontejner) {
     zvezdeKontejner.addEventListener("click", async function (event) {
         if (event.target.tagName === "INPUT") {
             let novaOcenaVrednost = Number(event.target.id.replace("star", ""));
-            console.log("Korisnik dao ocenu:", novaOcenaVrednost);
+            console.log("ocena", novaOcenaVrednost);
 
             const urlParams = new URLSearchParams(window.location.search);
             const authorId = urlParams.get('id');
             if (!authorId) return;
+
+            //ddodatp
+            if (!currentUser) {
+                alert("uloguj se");
+                return;
+            }
+
+            const currentUserId = localStorage.getItem("userId"); 
+            if (!currentUserId) {
+                alert("Morate biti prijavljeni da biste ocenili autora!");
+                return;
+            }
 
             let ratingId = authorId.replace('aut', 'oce');
             let url = `https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/ocene/${ratingId}.json`;
@@ -167,7 +179,11 @@ if (zvezdeKontejner) {
 
                 const azuriraniPodaci = {
                     zbirOcena: noviZbir,
-                    brojGlasova: noviBrojGlasova
+                    brojGlasova: noviBrojGlasova,
+                    //sad
+                    idAutora: authorId,
+                    idKorisnika: currentUserId,
+                    vrednost: novaOcenaVrednost
                 };
 
                 let responsePatch = await fetch(url, {
@@ -179,8 +195,8 @@ if (zvezdeKontejner) {
                 });
 
                 if (responsePatch.ok){
-                    let prikaziocene = document.getElementById("prikazi-ocene");
-                    if (prikaziocene) {
+                    let prikaziOcene = document.getElementById("prikazi-ocene");
+                    if (prikaziOcene) {
                         prikaziOcene.innerText = noviProsek.toFixed(1);
                     }
                     console.log("aa");

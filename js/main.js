@@ -3,7 +3,8 @@ function addNav(){
         let prvoSlovo = "T_T";
         let currentUser = localStorage.getItem("username");
         if(currentUser != null && currentUser != undefined){
-            prvoSlovo = currentUser[0].toUpperCase();
+            // pre pisalo prvoSlovo = currentUser[0].toUpperCase(); stvaralo gresku
+            prvoSlovo = currentUser?.[0]?.toUpperCase() || "T_T";
         }
 
         document.getElementById("usernameLetterNav").textContent = prvoSlovo;
@@ -19,7 +20,7 @@ function addNav(){
     let prvoSlovo = "T_T";
     let currentUser = localStorage.getItem("username");
     if(currentUser != null && currentUser != undefined){
-        prvoSlovo = currentUser[0].toUpperCase();
+        prvoSlovo = currentUser?.[0]?.toUpperCase() || "T_T";
     }
 
     let navElement = `
@@ -72,9 +73,11 @@ async function loadData(){
     }
 }
 
+// dodala loginsetup, stvaralo gresku
 let data = null;
 (async () => {
     data = await loadData();
+    loginSetup();
 })();
 
 function bringMenu(){
@@ -188,11 +191,11 @@ function showRegisterDialog(){
 
     innerHtmlRegister = `
             <h3>Регистрација</h3>
-            <form onsubmit="loginUser(event)" class="loginForm">
+            <form onsubmit="registerUser(event)" class="loginForm">
                 <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
-                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
-        <input id="confirmPassword" type="password" value="" placeholder="Потврдите лозинку">
-        <input id="registerNewAccount" type="submit" value="Потврди">
+                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
+                <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Потврдите лозинку">
+                <input id="registerNewAccount" type="submit" value="Потврди">
             </form>
             <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
     `;
@@ -200,7 +203,8 @@ function showRegisterDialog(){
 };
 
 async function loginSetup(){
-    let username = await localStorage.getItem("username");
+    // izbrisala await, stvaralo gresku
+    let username = localStorage.getItem("username");
     console.log(`username: ${username}`);
     if(username != null && username != undefined){
         currentUser = username;
@@ -242,6 +246,7 @@ function loginUser(event){
         if(data.korisnici[i].korisnickoIme == username && data.korisnici[i].lozinka == password){
             currentUser = username;
             localStorage.setItem("username", username);
+            localStorage.setItem("userId", i);
             loginSetup();
 
             // save to local storage
@@ -251,10 +256,81 @@ function loginUser(event){
     location.reload();
 }
 
-function registerUser(event){
 
+// registracija
+
+async function registerUser(event){
+    event.preventDefault();
+    //console.log("s");
+    let registerData = new FormData(event.target);
+    let username = registerData.get("username");
+    let password = registerData.get("password");
+    let confirmPassword = registerData.get("confirmPassword");
+
+    
+
+    if(password !== confirmPassword){
+        console.log("!");
+        loginDialog.innerHTML = "";
+        
+        innerHtmlRegister = `
+            <h3>Регистрација</h3>
+            <form onsubmit="registerUser(event)" class="loginForm">
+                <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
+                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
+                <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Погрешна лозинка" 
+                    style="background-color: #ff7171;" 
+                    oninput="this.style.backgroundColor=''">
+                <input id="registerNewAccount" type="submit" value="Потврди">
+            </form>
+            <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
+        `;
+        document.getElementById("loginDialog").innerHTML = innerHtmlRegister;
+        return;
+    }
+
+    let newUser = {
+        korisnickoIme: username,
+        lozinka: password
+    }
+
+    let sledeciBroj = 1;
+
+    if (data && data.korisnici) {
+        let sviKljucevi = Object.keys(data.korisnici);
+       
+        let sviBrojevi = sviKljucevi.map(kljuc => {
+            let brojka = kljuc.replace(/\D/g, ""); 
+            let parsiran = parseInt(brojka, 10);
+            return isNaN(parsiran) ? 0 : parsiran;
+        });
+        // ?
+        let najveciBroj = Math.max(...sviBrojevi);
+        if (isFinite(najveciBroj)) {
+            sledeciBroj = najveciBroj + 1;
+        }
+    }
+
+    let regis = "kor" + String(sledeciBroj).padStart(3, '0');
+    let response = await fetch(`https://books-website-74fda-default-rtdb.europe-west1.firebasedatabase.app/korisnici/${regis}.json`,{
+        method: "PUT",
+        body: JSON.stringify(newUser),
+        headers: {
+            "Content-Type":"application/json"
+        }
+    })
+
+    if (response.ok) {
+            console.log("regis");        
+            localStorage.setItem("username", username);
+            localStorage.setItem("userId", regis);
+            location.reload();
+    } else {
+        console.log("nije regis");
+    }
+    console.log(response);
 }
 
 // document.getElementById("")
-
-loginSetup();
+// loginsetup stvarao gresku, napisan u await
+// loginSetup();

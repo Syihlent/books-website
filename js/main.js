@@ -193,7 +193,7 @@ function showRegisterDialog(){
             <h3>Регистрација</h3>
             <form onsubmit="registerUser(event)" class="loginForm">
                 <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
-                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
+                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
                 <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Погрешна лозинка"
                     style="background-color: #ff7171;"
                     oninput="this.style.backgroundColor=''">
@@ -283,9 +283,15 @@ async function registerUser(event){
     let username = registerData.get("username");
     let password = registerData.get("password");
     let confirmPassword = registerData.get("confirmPassword");
-    let adresa = registerData.get("")
 
-    
+    let adresa = registerData.get("adresa");
+    let datumRodjenja = registerData.get("datumRodjenja");
+    let email = registerData.get("email");
+    let ime = registerData.get("ime");
+    let prezime = registerData.get("prezime");
+    let zanimanje = registerData.get("zanimanje");
+
+
 
     if(password !== confirmPassword){
         console.log("!");
@@ -315,7 +321,13 @@ async function registerUser(event){
 
     let newUser = {
         korisnickoIme: username,
-        lozinka: password
+        lozinka: password,
+        adresa: adresa,
+        datumRodjenja: datumRodjenja,
+        email: email,
+        ime: ime,
+        prezime: prezime,
+        zanimanje: zanimanje
     }
 
     let sledeciBroj = 1;

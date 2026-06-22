@@ -152,13 +152,13 @@ if (zvezdeKontejner) {
 
             //ddodatp
             if (!currentUser) {
-                alert("uloguj se");
+                console.log("regis");
                 return;
             }
 
             const currentUserId = localStorage.getItem("userId"); 
             if (!currentUserId) {
-                alert("Morate biti prijavljeni da biste ocenili autora!");
+                console.log("regis");
                 return;
             }
 

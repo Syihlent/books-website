@@ -193,12 +193,20 @@ function showRegisterDialog(){
             <h3>Регистрација</h3>
             <form onsubmit="registerUser(event)" class="loginForm">
                 <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
-                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
-                <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Потврдите лозинку">
+                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
+                <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Погрешна лозинка"
+                    style="background-color: #ff7171;"
+                    oninput="this.style.backgroundColor=''">
+                <input name="adresa" id="adresa" type="text" value="" placeholder="adresa">
+                <input name="datumRodjenja" id="datumRodjenja" type="text" value="" placeholder="datumRodjenja">
+                <input name="email" id="email" type="text" value="" placeholder="email">
+                <input name="ime" id="ime" type="text" value="" placeholder="ime">
+                <input name="prezime" id="prezime" type="text" value="" placeholder="prezime">
+                <input name="zanimanje" id="zanimanje" type="text" value="" placeholder="zanimanje">
                 <input id="registerNewAccount" type="submit" value="Потврди">
             </form>
             <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>
-    `;
+        `;
     document.getElementById("loginDialog").innerHTML = innerHtmlRegister;
 };
 
@@ -285,11 +293,17 @@ async function registerUser(event){
         innerHtmlRegister = `
             <h3>Регистрација</h3>
             <form onsubmit="registerUser(event)" class="loginForm">
-                <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
-                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
-                <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Погрешна лозинка" 
+                <input name="username" id="username" required type="text" value="" placeholder="Корисничко име">
+                <input name="password" id="password" required type=" password" value="" placeholder="Лозинка">
+                <input id="confirmPassword" name="confirmPassword" required type="password" value="" placeholder="Погрешна лозинка"
                     style="background-color: #ff7171;" 
                     oninput="this.style.backgroundColor=''">
+                <input name="adresa" id="adresa" type="text" value="" placeholder="adresa">
+                <input name="datumRodjenja" id="datumRodjenja" type="text" value="" placeholder="datumRodjenja">
+                <input name="email" id="email" type="text" value="" placeholder="email">
+                <input name="ime" id="ime" type="text" value="" placeholder="ime">
+                <input name="prezime" id="prezime" type="text" value="" placeholder="prezime">
+                <input name="zanimanje" id="zanimanje" type="text" value="" placeholder="zanimanje">
                 <input id="registerNewAccount" type="submit" value="Потврди">
             </form>
             <button id="closeLoginDialog" class="closeDialog" onclick="closeLoginDialog()">X</button>

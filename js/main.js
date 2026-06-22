@@ -266,6 +266,7 @@ async function registerUser(event){
     let username = registerData.get("username");
     let password = registerData.get("password");
     let confirmPassword = registerData.get("confirmPassword");
+    let adresa = registerData.get("")
 
     
 

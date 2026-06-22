@@ -193,7 +193,7 @@ function showRegisterDialog(){
             <h3>Регистрација</h3>
             <form onsubmit="registerUser(event)" class="loginForm">
                 <input name="username" id="username" type="text" value="" placeholder="Корисничко име">
-                <input name="password" id="password" type=" password" value="" placeholder="Лозинка">
+                <input name="password" id="password" type="password" value="" placeholder="Лозинка">
                 <input id="confirmPassword" name="confirmPassword" type="password" value="" placeholder="Потврдите лозинку">
                 <input id="registerNewAccount" type="submit" value="Потврди">
             </form>
@@ -253,7 +253,16 @@ function loginUser(event){
         }
     }
 
-    location.reload();
+    if(currentUser == null){
+        document.getElementById("username").placeholder = "Погрешно унети подаци";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("username").style.borderColor = "red";
+        document.getElementById("username").style.borderWidth = "5px";
+    }
+    else{
+        location.reload();
+    }
 }
 
 

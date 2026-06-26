@@ -258,8 +258,6 @@ function addNewBook(bookData){
         console.log("Book added sucesfully: ", data)
     })
     .catch(err => console.error("Firebase error: ", err));
-
-    location.reload();
     // console.log(bookData.entries()["images"].split("\n"));
     // console.log(bookData.get("images").split("\n").map(url => url.trim()).filter(url => url !== ""));
 }
@@ -279,8 +277,6 @@ function deleteBook(bookId){
         console.log(`deleted: ${bookId}`);
     })
     .catch(err => console.error(`Error while deleting: ${bookdId}`));
-
-    location.reload();
 }
 
 function updateBook(bookId, bookData){
@@ -305,9 +301,7 @@ function updateBook(bookId, bookData){
     .then(data => {
         console.log(`updated: ${bookId}`);
     })
-    .catch(err => console.error(`Error while updating: ${bookId}`));
-
-    location.reload();
+    .catch(err => console.error(`Error while updating: ${bookdId}`));
 }
 
 document.getElementById("confirm").addEventListener("click", (event) => {

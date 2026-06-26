@@ -195,6 +195,9 @@ document.getElementById("reviewForm").addEventListener("submit", (event) => {
         })
     });
 
+    document.getElementsByName("review")[0].value = "";
+    location.reload();
+
     // add new comment logic here
 
 
